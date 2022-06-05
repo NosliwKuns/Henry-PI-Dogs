@@ -1,26 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllDogs } from '../Redux/actions'
 
-const Cards = ({ fetchedData }) => {
-  console.log(fetchedData)
+const Cards = () => {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllDogs());
+  }, [dispatch]);
+
+  const dogs = useSelector(state => state.allDogs)
+
   let display;
-  if(fetchedData) {
-    display = fetchedData.map(({name, image}) => {
+  if(dogs) {
+    display = dogs.map(({name, image}) => {
       return (
         <>
-        <div>{name}</div>
-        <img src={image} alt='a' />
+        <h1>{name}</h1>
+        <img src={image} alt='s'/>
         </>
       )
     })
   } else {
-    display = 'nop'
+    display = 'Dog not found';
   }
   return (
     <div>
-      Hola soy el componente tortilla
       {display}
     </div>
   )
-};
+}
 
 export default Cards;
