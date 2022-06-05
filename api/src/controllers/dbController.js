@@ -1,29 +1,8 @@
-const { Dog } = require('../db');
+const { Dog, Temperament } = require('../db');
 
 const getAllDogsDb = async () => {
   try {
-    const dogsInfo = await Dog.findAll()
- /*      {
-        attributes: ['id', 'name', 'image', 'lifeSpan'],
-        include: {
-          model: Dog,
-          attributes: ['raza'],
-          through: {
-            attributes: []
-          }
-        }
-      }
-    ); */
-
-    const dogs = dogsInfo.map(info => (
-      {
-       id: info.id,
-       name: info.name,
-       image: info.image,
-       lifeSpan: info.lifeSpan 
-      }
-    ));
-    
+    const dogs = await Dog.findAll()
     return dogs;
   } catch (error) {
       console.log(error)
@@ -35,11 +14,31 @@ const addNewDog = async (body) => {
     const addDog = await Dog.create(body);
     return addDog;
   } catch (error) {
+    return 'Name already exists'
+  }
+};
+
+const  getAllTemps = async () => {
+  try {
+    const temperaments = await Temperament.findAll();
+    return temperaments;
+  } catch (error) {
+    
+  }
+};
+
+const addTemperaments = async (api) => {
+  try {
+    const temperament = await Temperament.create(api);
+    return temperament;
+  } catch (error) {
     console.log(error)
   }
 };
 
 module.exports = {
   getAllDogsDb,
-  addNewDog
+  addNewDog,
+  addTemperaments,
+  getAllTemps
 }

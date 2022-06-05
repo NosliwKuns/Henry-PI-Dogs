@@ -1,13 +1,21 @@
-const { getAllDogsApi } = require('./apiController');
-const { getAllDogsDb } = require('./dbController')
+const { getAllDogsApi, getTemperamentsApi } = require('./apiController');
+const { getAllDogsDb, addTemperaments } = require('./dbController')
 
 const getAllDogs = async () => {
   const dogsApi = await getAllDogsApi();
-    const dogsDb = await getAllDogsDb();
-    const dogs = [...dogsApi, ...dogsDb];
+  const dogsDb = await getAllDogsDb();
+  const dogs = [...dogsApi, ...dogsDb];
 
   return dogs;
 };
+
+( async () => {
+  const tempsApi = await getTemperamentsApi();
+  tempsApi.forEach(async e => {
+    const addTempBd = await addTemperaments({name: e})
+    return addTempBd;
+  })
+})()
 
 module.exports = {
   getAllDogs,
