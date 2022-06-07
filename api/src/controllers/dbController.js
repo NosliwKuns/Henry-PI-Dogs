@@ -2,7 +2,15 @@ const { Dog, Temperament } = require('../db');
 
 const getAllDogsDb = async () => {
   try {
-    const dogs = await Dog.findAll()
+    const dogs = await Dog.findAll({
+      include: {
+        model: Temperament,
+        attributes: ['name'],
+        through: {
+          attributes: [],
+        }
+      }
+    });
     return dogs;
   } catch (error) {
       console.log(error)
@@ -12,7 +20,7 @@ const getAllDogsDb = async () => {
 const addNewDog = async (body) => {
   try {
     const addDog = await Dog.create(body);
-    return addDog;
+    return addDog
   } catch (error) {
     return 'Name already exists'
   }

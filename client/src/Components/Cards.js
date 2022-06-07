@@ -14,14 +14,12 @@ const Cards = () => {
 
   let display;
   if(dogs) {
-    display = dogs.map(({name, image}) => {
-      return (
-        <>
-        <h1>{name}</h1>
-        <img src={image} alt='s'/>
-        </>
+    display = dogs.map(({id, name, image}) => 
+        <div key={id}>
+          <h1>{name}</h1>
+          <img src={image} alt='s'/>
+        </div>
       )
-    })
   } else {
     display = 'Dog not found';
   }

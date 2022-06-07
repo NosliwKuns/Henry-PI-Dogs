@@ -1,0 +1,58 @@
+@import url(//fonts.googleapis.com/css?family=Lato:300:400);
+
+body {
+  margin:0;
+  
+  cursor: url('../paw\ \(1\).png'), default;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+$colors: #600cc0, #17c1c7 , #b53bcb, #d0ee64;
+
+.landing-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+ 
+}
+
+.text--line {
+  font-size: .5em;
+  }
+
+.text {
+  position: absolute;
+  max-width: 700vh;
+  font: 10em/0  Arial;
+  }
+
+$max: 4;
+$stroke-step: 50; 
+.text-copy {
+  fill: none;
+  stroke: white;
+  stroke-dasharray: $stroke-step $stroke-step * ($max - 1);
+  stroke-width: 2px;
+  
+  animation: stroke-offset 7s infinite linear;
+  
+  @for $item from 1 through $max {
+    $stroke-color: nth($colors, $item);
+    
+    &:nth-child(#{$item}) {
+      stroke: $stroke-color;
+      stroke-dashoffset: $stroke-step * $item;
+      }
+    }
+  }
+
+@keyframes stroke-offset {
+  50% {
+    stroke-dashoffset: $stroke-step * $max * 1.5;  
+    stroke-dasharray: 0 $stroke-step * 2.5;
+  } /* 35% {
+    stroke-dashoffset: $stroke-step * $max;  
+    stroke-dasharray: 0 $stroke-step * 1.5;
+  }*/
+} 

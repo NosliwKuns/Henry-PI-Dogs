@@ -11,8 +11,8 @@ const getAllDogsApi = async () => {
         id: info.id,
         name: info.name,
         image: info.image.url,
-        height: info.height,
-        weight: info.weight,
+        height: info.height.metric,
+        weight: info.weight.metric,
         lifeSpan: info.life_span,
       }
     ));
