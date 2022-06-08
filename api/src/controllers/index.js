@@ -56,6 +56,7 @@ const newDogs = async (req, res) => {
       });
       newDogAdded.addTemperament(findTemp);
     });
+    console.log(newDogAdded);
     res.json(newDogAdded);
   } catch (error) {
     res.status(400).json({msg: 'nop'});

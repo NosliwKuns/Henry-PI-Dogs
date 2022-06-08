@@ -4,6 +4,7 @@ const { getAllDogsDb, addTemperaments } = require('./dbController')
 const getAllDogs = async () => {
   const dogsApi = await getAllDogsApi();
   const dogsDb = await getAllDogsDb();
+  console.log(dogsDb.temperaments);
   const dogs = [...dogsApi, ...dogsDb];
 
   return dogs;

@@ -14,6 +14,7 @@ const getAllDogsApi = async () => {
         height: info.height.metric,
         weight: info.weight.metric,
         lifeSpan: info.life_span,
+        temperaments: info.temperament?.split(', ')
       }
     ));
     return dog;
@@ -34,6 +35,10 @@ const getTemperamentsApi = async () => {
     console.log(error);
   }
 };
+
+const tempArray = (result) => {
+  result.flatMap(dog => dog.split(', ')).filter((e, i) => temps.indexOf(e) === i && e !== "Not found")
+}
 
 
 module.exports = {
