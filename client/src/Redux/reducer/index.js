@@ -1,7 +1,9 @@
-import { GET_ALL_DOGS } from '../actions'
+import { GET_ALL_DOGS } from '../actions';
+import { GET_TEMPERAMENTS } from '../actions';
 
 const initialState = {
   allDogs: [],
+  temperaments: []
 };
 
 const rootReducer =  (state = initialState, action) => {
@@ -10,6 +12,11 @@ const rootReducer =  (state = initialState, action) => {
       return {
         ...state,
         allDogs: action.payload
+      }
+    case GET_TEMPERAMENTS:
+      return {
+        ...state,
+        temperaments: action.payload
       }
     default: return initialState;
   }

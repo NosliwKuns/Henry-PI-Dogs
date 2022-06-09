@@ -1,20 +1,37 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import validateForm from './ValidateForm';
 import { postDog } from '../../Redux/actions';
-
+import { getTemperament } from '../../Redux/actions';
+import '../../scss/Create.scss';
+import Temperaments from './Temperaments';
 
 const Create = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const [errors, setErrors] = useState({});
+  
   const [input, setImput] = useState({
     name: '',
     image: '',
-    temperaments: [],
+    weight: '',
+    height: 'sa',
+    lifeSpan: 'sa',
+    temperament: ['Gay']
+  
 
   });
+
+  useEffect(() =>{
+    dispatch(getTemperament())
+  }, [dispatch]);
+
+  const temp = useSelector(state => state.temperaments)
+  console.log(temp)
+
+  const [checked, useChecked] = useState(false)
+  console.log(!checked);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -48,6 +65,20 @@ const Create = () => {
 
   console.log(input)
   console.log(errors);
+
+  var expanded = false;
+
+function showCheckboxes() {
+  var checkboxes;
+  if (!expanded) {
+    checkboxes.style.display = "block";
+    expanded = true;
+  } else {
+    checkboxes.style.display = "none";
+    expanded = false;
+  }
+}
+
   return (
     <form onSubmit={handleSubmit}>
             <div>
@@ -57,8 +88,7 @@ const Create = () => {
                 name="name"
                 placeholder="Husky" 
                 value={input.name}
-                onChange={handleChange}
-                
+                onChange={handleChange}  
               />
               <div>
                 <p>{errors.name}</p>
@@ -70,7 +100,7 @@ const Create = () => {
                 type="url"
                 value={input.image}
                 name="image"
-                placeholder="http://holi.com"
+                placeholder="http://dog.com"
                 onChange={handleChange}
               />
               <div>
@@ -82,24 +112,24 @@ const Create = () => {
               <label>Min</label>
               <input
                 type="number"
-                /* value={input.height_min} */
-                name="height_min"
+                value={input.height}
+                name="height"
                 placeholder="20"
-                /* onChange={(e) => handleChange(e)} */
+                onChange={handleChange}
               />
               <div>
-                {/* <p>{errors.height_min}</p> */}
+                <p>{errors.height_min}</p>
               </div>
               <label>Max</label>
               <input
                 type="number"
-                /* value={input.height_max} */
-                name="height_max"
+                value={input.height}
+                name="height"
                 placeholder="50"
-                /* onChange={(e) => handleChange(e)} */
+                onChange={handleChange}
               />
               <div>
-                {/* <p>{errors.height_max}</p> */}
+                <p>{errors.height_max}</p>
               </div>
             </div>
             <div>
@@ -137,27 +167,7 @@ const Create = () => {
                 /* onChange={(e) => handleChange(e)} */
               />
             </div>
-            <div>
-              <label>Temperaments</label>
-              <select name="pets" id="pet-select">
-                <option value="">--Please choose an option--</option>
-                <option value="dog">Dog</option>
-                <option value="cat">Cat</option>
-                <option value="hamster">Hamster</option>
-                <option value="parrot">Parrot</option>
-                <option value="spider">Spider</option>
-                <option value="goldfish">Goldfish</option>
-              </select>
-              <div>
-                {/* <h4>You have selected that:</h4> */}
-                {/* {input.temperament.map((el) => (
-                  <div key={el}>
-                    <p>{el}</p>
-                    <button onClick={() => handleDelete(el)}>x</button>
-                  </div>
-                ))} */}
-              </div>
-            </div>
+            <Temperaments temp={temp} />            
             <div>
             
                 <button>Cancel</button>
