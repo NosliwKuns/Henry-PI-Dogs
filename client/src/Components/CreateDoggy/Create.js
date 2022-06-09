@@ -151,7 +151,25 @@ const Create = () => {
                 /* onChange={(e) => handleChange(e)} */
               />
             </div>
-            <Temperaments />            
+            <Temperaments />  
+
+ {/*            <div class='accordion'>
+        <div class="acordeon__item">
+          <input type='checkbox' name='accordion' id="item1"/>
+          <label htmlFor="item1" class='accordion__title'>Help</label>
+          <div className='accordion_content'>
+            hola
+          </div>
+          <div className='accordion_content'>
+            <input type='checkbox' name='accordion' id="item1"/>
+            <label htmlFor="item1" class='holi'>Status</label>
+          </div>
+          <div className='accordion_content'>
+            hola
+          </div>
+          
+        </div>
+		  </div>           */}
             <div>
             
                 <button>Cancel</button>

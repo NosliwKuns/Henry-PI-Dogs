@@ -49,6 +49,15 @@
   
 }
 
+.menu {
+  transition: left 0.7s ease
+}
+
+.checkbox:checked ~ .menu {
+  top: 40%;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
 @keyframes rotacion {
   from {height: 0}
   to {height: 100%;}
@@ -59,6 +68,88 @@
   to {height: 0;}
 }
 
+
+
+.accordion input {
+	display: none;
+}
+
+.accordion__title {
+	display: block;
+	padding: 15px;
+	background: #4c241d;
+	color: #fff;
+	font-size: 20px;
+	cursor: pointer;
+  border: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+  
+}
+
+/* .accordion__item {
+  background: #fff;
+  overflow: scroll;
+  border: 100px solid #fff;
+  width: 100px;
+} */
+.accordion__title:hover {
+	background: #05acff;
+  color: #000000;
+  border-bottom: 1px solid #fff;
+}
+
+.accordion_content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: absolute;
+	height: 0;
+  width: 100%;
+  border: none;
+  font-size: 22px;
+	overflow: auto;
+	transition: all 0.5s ease;
+
+  label {
+    background-color: rgb(65, 187, 173);
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    border: 1px solid #fff;
+    cursor: pointer;
+    padding: 0.5rem;
+    width: 100%;
+  }
+
+  span,img {
+    border: solid 0.1em #fff;
+    animation: rotacion 1.5s ease;
+    height: 30px;
+    width: 30px;
+  }
+
+}
+
+.accordion input:checked ~ .accordion_content{
+	height: 350px;
+  background-color: #ffffff;
+}
+
+.accordion_content input:checked ~ .checkbox{
+  background-color: #C2FF05;
+  color: #000000;
+}
+
+@keyframes rotacion {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    border-radius: 50px;
+  }
+  100% {
+    transform: rotate(360deg);
+    
+  }
+}
 
 
 
