@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import validateForm from './ValidateForm';
 import { postDog } from '../../Redux/actions';
-import { getTemperament } from '../../Redux/actions';
+
 import '../../scss/Create.scss';
 import Temperaments from './Temperaments';
 
@@ -23,15 +23,9 @@ const Create = () => {
 
   });
 
-  useEffect(() =>{
-    dispatch(getTemperament())
-  }, [dispatch]);
 
-  const temp = useSelector(state => state.temperaments)
-  console.log(temp)
-
-  const [checked, useChecked] = useState(false)
-  console.log(!checked);
+/*   const [checked, useChecked] = useState(false)
+  console.log(!checked); */
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -66,18 +60,8 @@ const Create = () => {
   console.log(input)
   console.log(errors);
 
-  var expanded = false;
+  
 
-function showCheckboxes() {
-  var checkboxes;
-  if (!expanded) {
-    checkboxes.style.display = "block";
-    expanded = true;
-  } else {
-    checkboxes.style.display = "none";
-    expanded = false;
-  }
-}
 
   return (
     <form onSubmit={handleSubmit}>
@@ -167,7 +151,7 @@ function showCheckboxes() {
                 /* onChange={(e) => handleChange(e)} */
               />
             </div>
-            <Temperaments temp={temp} />            
+            <Temperaments />            
             <div>
             
                 <button>Cancel</button>

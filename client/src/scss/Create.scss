@@ -1,114 +1,64 @@
-.filters {
-  font-weight: 130px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.filters h3 {
-  background-color: #868686;
-  padding: 0 15px 0 15px;
-  color: #cecece;
-  font-size: 28px;
-  font-weight: 130px;
-  text-align: center;
-  margin-top: 10px;
-  padding: 10px 0 10px 0;
-  border-radius: 10px 10px 0 0 ;
-}
-
-.filters button {
-  background-color: #c4c4c4;
-  border: none;
-  width: 100%;
-  padding: 10px 0 10px 0;
-  font-size: 20px;
-}
-
-.accordion input {
-	display: none;
-}
-
-.accordion__title {
-	display: block;
-	padding: 15px;
-	background: #000000;
-	color: #fff;
-	font-size: 20px;
-	cursor: pointer;
-  border: 1px solid #fff;
-	border-bottom: 1px solid #fff;
-}
-.accordion__title:hover {
-	background: #0675a1;
-  color: #dcdcdc;
-  border: 1px solid #C2FF05;
-  border-bottom: 1px solid #fff;
-}
-
-.accordion_content {
-  overflow:auto;
- overflow: scroll;
-overflow-y:hidden;
-overflow-x: scroll;
-  text-align: center;
-	height: 0;
-  width: 100%;
-  border: none;
-  font-size: 22px;
-	overflow: hidden;
-	margin: 0;
-	transition: all 0.5s ease;
-}
-
-.accordion input:checked ~ .accordion_content{
-	height: 50px;
-  padding-top: 12px;
-  border-bottom: 1px solid #fff;
-  background-color: #000000;
-  color: #fff;
-}
-
-.accordion input:checked ~ .accordion_content:hover {
-  background-color: #a8a8a8;
-  color: #c4c4c4;
-
-}
-
 .multiselect {
-  width: 200px;
+  width: 300px;
 }
 
 .selectBox {
-  position: relative;
+  cursor: pointer;
+  
+
+  section {
+    width: 22em;
+    background-color: #fff;
+    border-radius: 10px 10px 0 0;
+    padding: 5px;
+    animation: rotacion 
+  }
 }
 
-.selectBox select {
-  width: 100%;
-  font-weight: bold;
-}
-
-.overSelect {
+/* .overSelect {
   position: absolute;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
+} */
+
+.hide {
+  display: none;
 }
 
-#checkboxes {
-  display: block;
-  border: 1px #b10606 solid;
-  overflow: scroll;
-  height: 200px;
-}
-
-#checkboxes label {
-  display: block;
+.show {
+  position:absolute;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 0.5em;
+  width: 22em;
+  overflow: auto;
+  max-height: 20em;
+  animation: rotacion 1.5s ease;
   background-color: #fff;
+
+  label {
+    display: flex;
+    align-items: center;
+  }
+
+  label:hover {
+    background-color: #1e90ff;
+  }
   
 }
 
-#checkboxes label:hover {
-  background-color: #1e90ff;
+@keyframes rotacion {
+  from {height: 0}
+  to {height: 100%;}
 }
+
+@keyframes alo {
+  from {height: 100%;}
+  to {height: 0;}
+}
+
+
+
+
