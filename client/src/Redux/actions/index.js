@@ -13,6 +13,11 @@ export const getTemperament = () => async (dispatch) => {
 };
 
 export const postDog = (info) => async () => {
-  const send = await axios.post('http://localhost:3001/dogs', info);
-  return send;
+  try {
+    const send = await axios.post('http://localhost:3001/dogs', info);
+    console.log(send.data);
+    return send; 
+  } catch (error) {
+    console.log(error);
+  }
 }

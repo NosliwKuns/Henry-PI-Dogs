@@ -63,7 +63,7 @@ const newDogs = async (req, res) => {
     console.log(newDogAdded);
     res.json(newDogAdded);
   } catch (error) {
-    res.status(400).json(error.message);
+    res.status(404).json({ msg: error.message});
   }
 };
 

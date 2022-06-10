@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import validateForm from './ValidateForm';
-import { postDog } from '../../Redux/actions';
+import { postDog, getAllDogs } from '../../Redux/actions';
 import Temperaments from './Temperaments';
 import '../../scss/Create.scss';
 
@@ -10,7 +10,6 @@ const Create = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const [errors, setErrors] = useState({});
-  
   const [input, setImput] = useState({
     name: '',
     image: '',
@@ -19,6 +18,12 @@ const Create = () => {
     life_span: '',
     temperament: []
   });
+
+  useEffect(() => {
+    dispatch(getAllDogs());
+  }, [dispatch]);
+
+   const dogs = useSelector(state => state.allDogs)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -36,6 +41,9 @@ const Create = () => {
     e.preventDefault();
     if(!input.name) {
       return alert('Invalid action');
+    }
+    if (dogs.find(e => e.name.toLowerCase() === input.name.toLowerCase())) {
+      return alert('Doggy name already exists')
     }
     if (!errors.name && !errors.image) {
       alert('Doggy created successfully');

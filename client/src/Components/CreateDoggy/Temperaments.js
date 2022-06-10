@@ -25,7 +25,7 @@ const Temperaments = ({ input, setImput }) => {
   
   useEffect(() =>{
     dispatch(getTemperament())
-  }, [dispatch, display]);
+  }, [dispatch]);
  
   return (
 
