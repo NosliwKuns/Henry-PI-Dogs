@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getTemperament } from '../../Redux/actions';
 import Image from '../../paw.png';
 
-const Temperaments = () => {
+const Temperaments = ({ input, setImput }) => {
   const dispatch = useDispatch();
   const [display, setDisplay] = useState([]);
   const temp = useSelector(state => state.temperaments);
@@ -17,7 +17,10 @@ const Temperaments = () => {
       : [...display.filter(name => name !== value)]
 
     setDisplay(newArr)
-  
+    setImput({
+      ...input,
+      temperament: newArr
+    })
   };
   
   useEffect(() =>{
@@ -44,10 +47,11 @@ const Temperaments = () => {
                   <input 
                     type='checkbox'
                     checked={boolean}
+                    name='temperament'
                     id={t.id} 
                     value={t.name}
                     onChange={checkbox}/>
-                    {boolean ? <img src={Image}/> : <span></span>}
+                    {boolean ? <img src={Image} alt='check'/> : <span></span>}
                 </label>  
               )
             })

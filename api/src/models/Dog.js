@@ -17,7 +17,6 @@ module.exports = (sequelize) => {
     image: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
     },
     height: {
       type: DataTypes.STRING,
@@ -25,7 +24,7 @@ module.exports = (sequelize) => {
     weight: {
       type: DataTypes.STRING,
     },
-    lifeSpan: {
+    life_span: {
       type: DataTypes.STRING,
     },
   });

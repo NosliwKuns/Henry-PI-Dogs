@@ -3,9 +3,8 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import validateForm from './ValidateForm';
 import { postDog } from '../../Redux/actions';
-
-import '../../scss/Create.scss';
 import Temperaments from './Temperaments';
+import '../../scss/Create.scss';
 
 const Create = () => {
   const dispatch = useDispatch();
@@ -16,16 +15,10 @@ const Create = () => {
     name: '',
     image: '',
     weight: '',
-    height: 'sa',
-    lifeSpan: 'sa',
-    temperament: ['Gay']
-  
-
+    height: '',
+    life_span: '',
+    temperament: []
   });
-
-
-/*   const [checked, useChecked] = useState(false)
-  console.log(!checked); */
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -41,15 +34,19 @@ const Create = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(!input.name){
-      return alert('Holi');
+    if(!input.name) {
+      return alert('Invalid action');
     }
     if (!errors.name && !errors.image) {
       alert('Doggy created successfully');
       dispatch(postDog(input));
       setImput({
         name: '',
-        image: ''
+        image: '',
+        weight: '',
+        height: '',
+        life_span: '',
+        temperament: []
       });
     } else {
       return alert('Something went wrong. Please try again.');
@@ -60,125 +57,84 @@ const Create = () => {
   console.log(input)
   console.log(errors);
 
-  
-
-
   return (
     <form onSubmit={handleSubmit}>
-            <div>
-              <label>Name:</label>
-              <input
-                type="text"
-                name="name"
-                placeholder="Husky" 
-                value={input.name}
-                onChange={handleChange}  
-              />
-              <div>
-                <p>{errors.name}</p>
-              </div>
-            </div>
-            <div>
-              <label>Image URL:</label>
-              <input
-                type="url"
-                value={input.image}
-                name="image"
-                placeholder="http://dog.com"
-                onChange={handleChange}
-              />
-              <div>
-                {/* <p>{errors.image}</p> */}
-              </div>
-            </div>
-            <div>
-              <h4>Heights</h4>
-              <label>Min</label>
-              <input
-                type="number"
-                value={input.height}
-                name="height"
-                placeholder="20"
-                onChange={handleChange}
-              />
-              <div>
-                <p>{errors.height_min}</p>
-              </div>
-              <label>Max</label>
-              <input
-                type="number"
-                value={input.height}
-                name="height"
-                placeholder="50"
-                onChange={handleChange}
-              />
-              <div>
-                <p>{errors.height_max}</p>
-              </div>
-            </div>
-            <div>
-              <h4>Weights</h4>
-              <label>Min</label>
-              <input
-                type="number"
-                /* value={input.weight_min} */
-                name="weight_min"
-                placeholder="15"
-                /* onChange={(e) => handleChange(e)} */
-              />
-              <div>
-                {/* <p>{errors.weight_min}</p> */}
-              </div>
-              <label>Max</label>
-              <input
-                type="number"
-                /* value={input.weight_max} */
-                name="weight_max"
-                placeholder="32"
-                /* onChange={(e) => handleChange(e)} */
-              />
-              <div>
-                {/* <p>{errors.weight_max}</p> */}
-              </div>
-            </div>
-            <div>
-              <label>Life Span</label>
-              <input
-                type="text"
-                /* value={input.life_span} */
-                name="life_span"
-                placeholder="12 - 15 years"
-                /* onChange={(e) => handleChange(e)} */
-              />
-            </div>
-            <Temperaments />  
-
- {/*            <div class='accordion'>
-        <div class="acordeon__item">
-          <input type='checkbox' name='accordion' id="item1"/>
-          <label htmlFor="item1" class='accordion__title'>Help</label>
-          <div className='accordion_content'>
-            hola
-          </div>
-          <div className='accordion_content'>
-            <input type='checkbox' name='accordion' id="item1"/>
-            <label htmlFor="item1" class='holi'>Status</label>
-          </div>
-          <div className='accordion_content'>
-            hola
-          </div>
-          
+      <div>
+        <label>Name: </label>
+        <input
+          type="text"
+          name="name"
+          placeholder="Husky" 
+          value={input.name}
+          onChange={handleChange}  
+        />
+        <div>
+          <p>{errors.name}</p>
         </div>
-		  </div>           */}
-            <div>
-            
-                <button>Cancel</button>
-       
-              <button type="submit">
-                Creat {/* 🐕 */}
-              </button>
-            </div>
-          </form>
+      </div>
+      <div>
+        <label>Image URL: </label>
+        <input
+          type='text'
+          value={input.image}
+          name='image'
+          placeholder="http://doggy.com"
+          onChange={handleChange}
+        />
+        <div>
+          <p>{errors.image}</p>
+        </div>
+      </div>
+      <div>
+        <label>Height: </label>
+        <input
+          type='text'
+          value={input.height}
+          name='height'
+          placeholder='20 - 60'
+          onChange={handleChange}
+        />
+        <div>
+          <p>{errors.height}</p>
+        </div>
+      </div>
+      <div>
+        <label>Weight: </label>
+        <input
+          type='text'
+          value={input.weight}
+          name='weight'
+          placeholder="24 - 32"
+          onChange={handleChange}
+        />
+        <div>
+          <p>{errors.weight}</p>
+        </div>
+      </div>
+      <div>
+        <label>Life Span: </label>
+        <input
+          type="text"
+          value={input.life_span}
+          name="life_span"
+          placeholder="12 - 15 years"
+          onChange={handleChange}
+        />
+        <div>
+          <p>{errors.life_span}</p>
+        </div>
+      </div>
+      <Temperaments
+        input={input} 
+        setImput={setImput}
+      />  
+      <div>
+        <button>Cancel</button>
+        <button type="submit">
+          Creat 🐕 
+        </button>
+      </div>
+    </form>
   )
 };
 

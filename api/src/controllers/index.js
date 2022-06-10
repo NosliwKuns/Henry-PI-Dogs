@@ -45,21 +45,25 @@ const getDetailById = async (req, res) => {
 
 const newDogs = async (req, res) => {
   try {
-    const { name, image, height, weight, lifeSpan, temperament} = req.body;
-    if(!name || !image || !height || !weight || !lifeSpan) {
-      throw new Error ('error')
+    const { name, image, height, weight, life_span, temperament} = req.body;
+    if(!name || !image || !height || !weight || !life_span) {
+      throw new Error ('Something went wrong')
     }
     const newDogAdded = await addNewDog(req.body);
+    if (typeof(newDogAdded) === 'string') {
+      throw new Error(newDogAdded)
+    
+    }
     temperament.map(async tem => {
       const findTemp = await Temperament.findAll({
-        where: { name: tem}
+        where: { name: tem }
       });
       newDogAdded.addTemperament(findTemp);
     });
     console.log(newDogAdded);
     res.json(newDogAdded);
   } catch (error) {
-    res.status(400).json({msg: 'nop'});
+    res.status(400).json(error.message);
   }
 };
 
