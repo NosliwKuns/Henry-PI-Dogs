@@ -1,33 +1,39 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getAllDogs } from '../Redux/actions'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import '../scss/HomeView/Cards.scss';
 
-const Cards = () => {
+const Cards = ({ dogs, dogName, search }) => {
 
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getAllDogs());
-  }, [dispatch]);
-
-  const dogs = useSelector(state => state.allDogs)
+  let change = search ? dogName : dogs;
 
   let display;
-  if(dogs) {
-    display = dogs.map(({id, name, image}) => 
-        <div key={id}>
+
+  if( Array.isArray(change) ) {
+    display = change?.map(({ id, name, image, temperaments, weight }) => {
+      return (
+        <Link 
+          to={`/detail/${id}`} 
+          key={id} className='card'
+        >
+          <div className='blob'></div>
+          <div className='blob two'></div>
+          <section>
+            <img src={image} alt={name}/>
+          </section>
           <h1>{name}</h1>
-          <img src={image} alt='s'/>
-        </div>
+          <div>{temperaments?.join(' , ')}</div>
+          <h3>{weight} Kilos</h3>
+        </Link>
       )
+    });
   } else {
-    display = 'Dog not found';
+    display = 'Dog breed not found';
   }
   return (
-    <div>
+    <div className='cards-container'>
       {display}
     </div>
   )
-}
+};
 
 export default Cards;

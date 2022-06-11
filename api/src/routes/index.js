@@ -12,7 +12,7 @@ router.get('/dogs', getDogs);
 
 router.get('/dog', getDogsByName);
 
-router.get('/dogs/:idRaza', getDetailById);
+router.get('/dogs/:idBreed', getDetailById);
 
 router.post('/dogs', newDogs);
 

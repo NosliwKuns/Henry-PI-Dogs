@@ -21,7 +21,7 @@ const getDogsByName = async (req, res) => {
       );
       dogNames.length ? res.json(dogNames) :
                         res.status(404).send(`Can't find a dog with that name`)
-    }
+    } else { res.json(allDogs) }
   } catch (error) {
     res.json(error);
   }
@@ -29,13 +29,12 @@ const getDogsByName = async (req, res) => {
 
 const getDetailById = async (req, res) => {
   try {
-    const { idRaza } = req.params;
-    console.log(idRaza);
+    const { idBreed } = req.params;
     const allDogs = await getAllDogs();
-    if(idRaza === null) {
-      res.status(404).json('Name not found in database')
+    if(idBreed === null) {
+      res.status(404).json('Dog not found in database')
     } else {
-      let dog = allDogs.find(dog => dog.id === parseInt(idRaza));
+      let dog = allDogs.find(dog => dog.id === parseInt(idBreed));
       res.json(dog);
     }
   } catch (error) {

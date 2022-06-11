@@ -4,12 +4,14 @@ import { useHistory } from 'react-router-dom';
 import validateForm from './ValidateForm';
 import { postDog, getAllDogs } from '../../Redux/actions';
 import Temperaments from './Temperaments';
+import NavBar from '../NavBar';
 import '../../scss/Create.scss';
 
 const Create = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const [errors, setErrors] = useState({});
+  const [transition, setTransition] = useState('transition transition-1 is-active');
   const [input, setImput] = useState({
     name: '',
     image: '',
@@ -18,6 +20,11 @@ const Create = () => {
     life_span: '',
     temperament: []
   });
+
+  useEffect(() => {
+    setTransition(transition.split(' ').slice(0, 2).join(' '))
+  }, [transition])
+
 
   useEffect(() => {
     dispatch(getAllDogs());
@@ -66,6 +73,9 @@ const Create = () => {
   console.log(errors);
 
   return (
+    <div>
+    <div className={transition}></div>
+    <NavBar />
     <form onSubmit={handleSubmit}>
       <div>
         <label>Name: </label>
@@ -143,6 +153,7 @@ const Create = () => {
         </button>
       </div>
     </form>
+    </div>
   )
 };
 

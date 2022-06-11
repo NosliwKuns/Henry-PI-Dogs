@@ -1,6 +1,8 @@
 import axios from 'axios';
 export const GET_ALL_DOGS = 'GET_ALL_DOGS';
 export const GET_TEMPERAMENTS = 'GET_TEMPERAMENTS';
+export const GET_DETAIL = 'GET_DETAIL';
+export const SEARCH_BY_NAME = 'SEARCH_BY_NAME';
 
 export const getAllDogs = () => async (dispatch) => {
   const { data } = await axios.get('http://localhost:3001/dogs');
@@ -13,11 +15,21 @@ export const getTemperament = () => async (dispatch) => {
 };
 
 export const postDog = (info) => async () => {
-  try {
     const send = await axios.post('http://localhost:3001/dogs', info);
     console.log(send.data);
     return send; 
+};
+
+export const getDetail = (idBreed) => async (dispatch) => {
+  const { data } = await axios.get(`http://localhost:3001/dogs/${idBreed}`);
+  return dispatch({ type: GET_DETAIL, payload: data});
+};
+
+export const searchByName = (name) => async (dispatch) => {
+  try {
+    const { data } = await axios.get(`http://localhost:3001/dog?name=${name}`);
+    return dispatch({ type: SEARCH_BY_NAME, payload: data })  
   } catch (error) {
-    console.log(error);
+    return dispatch({ type: SEARCH_BY_NAME, payload: error.message })
   }
-}
+};
