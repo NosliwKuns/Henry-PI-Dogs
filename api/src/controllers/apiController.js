@@ -29,7 +29,7 @@ const getTemperamentsApi = async () => {
     let { data } = await axios.get(`${apiLink}?api_key=${DOG_API_KEY}`);
     let temps = data.map(dog => dog.temperament ? dog.temperament 
                 : "Not found").flatMap(dog => dog.split(', '));
-    let result = temps.filter((e, i) => temps.indexOf(e) === i && e !== "Not found")
+    let result = temps.filter((e, i) => temps.indexOf(e) === i && e !== "Not found").sort()
     return result
   } catch (error) {
     console.log(error);

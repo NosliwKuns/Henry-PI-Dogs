@@ -2,11 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../scss/HomeView/Cards.scss';
 
-const Cards = ({ dogs, dogName, search }) => {
-
-  let change = search ? dogName : dogs;
+const Cards = ({ dogs, dogName, search, filter }) => {
+  
+  let change = search ? dogName : filter.length ? filter : dogs;
 
   let display;
+  console.log(change);
 
   if( Array.isArray(change) ) {
     display = change?.map(({ id, name, image, temperaments, weight }) => {
