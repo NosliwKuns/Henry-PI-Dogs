@@ -2,6 +2,7 @@ import { GET_ALL_DOGS } from '../actions';
 import { GET_TEMPERAMENTS } from '../actions';
 import { GET_DETAIL } from '../actions';
 import { SEARCH_BY_NAME } from '../actions';
+import { FILTER_BY_TEMP } from '../actions';
 
 const initialState = {
   allDogs: [],
@@ -30,7 +31,12 @@ const rootReducer =  (state = initialState, action) => {
     case SEARCH_BY_NAME:
       return {
         ...state,
-        searchDogs: action.payload
+        allDogs: action.payload
+      }
+    case FILTER_BY_TEMP:
+      return {
+        ...state,
+        allDogs: action.payload
       }
     default: return initialState;
   }

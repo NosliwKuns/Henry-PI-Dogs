@@ -1,9 +1,12 @@
 import React, { useState, useRef } from 'react';
-import Buttons from './Buttons';
 import '../../../scss/HomeView/Filters.scss';
+import { filterByTemp } from '../../../Redux/actions';
+import { useDispatch, useSelector } from 'react-redux';
 
-const Filters = ({ dogs, setFilter, dogTemp, change, setChange }) => {
-  const [changeTwo, setChangeTwo] = useState(false);
+const Filters = () => {
+  const dispatch = useDispatch();
+  const prueba = useSelector(state => state.allDogs);
+/*   const [changeTwo, setChangeTwo] = useState(false);
   const [axis, setAxis] = useState({
     x: 0,
     y: 0
@@ -29,17 +32,23 @@ const Filters = ({ dogs, setFilter, dogTemp, change, setChange }) => {
   const maskStyle = {
     '--maskX' : x,
     '--maskY' : y
+  } */
+  const handleClick = (e) => {
+    dispatch(filterByTemp('Hardy'));
+    console.log(prueba)
   }
+
   return (
     <div className='filter'>
-    <div className='holi' ref={titleContainer} onMouseMove={handleMouseMove} style={maskStyle}>
+      <button onClick={handleClick}>sep</button>
+   {/*  <div className='holi' ref={titleContainer} onMouseMove={handleMouseMove} style={maskStyle}>
       <div className='titleWrapper'>
           <h1>Hola</h1>
       </div>
       <div className='titleWrapper cloneWrapper'>
           <h1>Hola</h1>
       </div>
-    </div>
+    </div> */}
      {/*  <h1>Mongoouse</h1>
       <Buttons
         dogs={dogs}
@@ -81,21 +90,21 @@ const Filters = ({ dogs, setFilter, dogTemp, change, setChange }) => {
         </div>
         </div>
 		  </div> */}
-  <div class="accordion"> 
+{/*   <div class="accordion"> 
   
   <a href="#" class="accordion-toggle">Hover for height animate</a>
-  <div class="accordion-content">
+  <div class="accordion-content"> */}
     {/* <div class="accordion-inner"> */} 
-      {
+ {/*      {
         one.map(e => 
           <div className='included'>{e.name}</div>
         )
       }
       <p>For animate the "height" of element with CSS Transitions you need use "max-height".</p>
       <p>If use the "height: auto", the effect not works. Is necessary some value for the CSS create a CSS animate, and you can use "max-height" with a great value for emulate this effect.</p> 
-    </div>
+    </div> */}
   {/* </div> */}
-</div>
+{/* </div>
 
 <div class="accordion"> 
   
@@ -111,7 +120,7 @@ const Filters = ({ dogs, setFilter, dogTemp, change, setChange }) => {
       <div class='melt-leave-active'>
       <div class='melt-enter-active'></div>
 
-      </div>
+      </div> */}
 
     </div>
   )

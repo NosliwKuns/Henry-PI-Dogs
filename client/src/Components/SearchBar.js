@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { searchByName } from './../Redux/actions/index';
 
-const SearchBar = ({ setSearch }) => {
+const SearchBar = () => {
 
+  const dispatch = useDispatch()
+  const [search, setSearch] = useState('');
 
-  const handleChange = (e) => {
+  const handleClick = (e) => {
     e.preventDefault();
+    
+    if (search.length === 0) {
+      return alert("Please input a name to start the search");
+    } else {
+      dispatch(searchByName(search));
+      setSearch("");
+    }
   }
   return (
     <>
@@ -12,11 +23,12 @@ const SearchBar = ({ setSearch }) => {
         <input
           type="text"
           className="search"
+          value={search}
           placeholder='Search...'
           onChange={(e) => setSearch(e.target.value)}
         />
         <button
-          onClick={handleChange}
+          onClick={handleClick}
           className='btn-search'
         > X
         </button>

@@ -6,7 +6,6 @@ const getAllDogs = async () => {
   const dogsDb = await getAllDogsDb();
   console.log(dogsDb.temperaments);
   const dogs = [...dogsApi, ...dogsDb];
-
   return dogs;
 };
 

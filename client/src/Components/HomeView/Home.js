@@ -9,40 +9,35 @@ import Filters from './Filters/Filters';
 const Home = () => {
 
   const dispatch = useDispatch();
-  const [pageNumber, setPageNumber] = useState(1);
-  const [temperaments, setTemperaments] = useState([]);
-  const [apiBreed, setAPIBreed] = useState('');
-  const [dbBreed, setDBBreed] = useState('');
-  const [search, setSearch] = useState('');
-  const [transition, setTransition] = useState(false);
-  const [filter, setFilter] = useState([]);
-  const [change, setChange] = useState(false);
-  const dogs = useSelector(state => state.allDogs);
+  // const [pageNumber, setPageNumber] = useState(1);
+  // const [temperaments, setTemperaments] = useState([]);
+  // const [apiBreed, setAPIBreed] = useState('');
+  // const [dbBreed, setDBBreed] = useState('');
+  // const [search, setSearch] = useState('');
+const [transition, setTransition] = useState(false);
+  // const [filter, setFilter] = useState([]);
+  // const [change, setChange] = useState(false);
+  const allDogs = useSelector(state => state.allDogs);
   const dogName = useSelector(state => state.searchDogs);
   const dogTemp = useSelector(state => state.temperaments)
-  let a = 'transition transition-4 is-active'
+  const [currentPage, setCurrentPage] = useState(1);
+  const [dogsPerPage] = useState(8);
+  const indexOfLastDog = currentPage * dogsPerPage;
+  const indexOfFirstDog = indexOfLastDog - dogsPerPage;
+  const currentDogs = allDogs.slice(indexOfFirstDog, indexOfLastDog);
+  const pagination = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
   
   useEffect(() => {
     setTimeout(() => {
       dispatch(getAllDogs())
-      dispatch(searchByName(search))
       dispatch(getTemperament())  
     }, 1500);
-  }, [dispatch, search, transition, filter, temperaments]);
+  }, [dispatch, transition]);
   
-  console.log(dogTemp)
 
-/*   let circles = 140
-  let background = [];
-  let i = 1;
-  while (i < circles) {
-    background.push(
-      (
-        <div key={`${i}CIRCLE`} className='snow'></div>
-      )
-    )
-    i++;
-  } */
+
   
   useEffect(() => {
     /* setTransition(transition.split(' ').slice(0, 2).join(' ')) */
@@ -56,25 +51,22 @@ const Home = () => {
       <div className={transition ? 'y' : 'x'}></div>
       <div className={transition ? 'y' : 'p'}></div>
       <NavBar 
-        setSearch={setSearch}
       />
       <Cards 
-        dogs={dogs}
+        currentDogs={currentDogs}
+/*         dogs={dogs}
         dogName={dogName}
         search={search}
-        filter={filter}
+        filter={filter} */
         /* ref={ref} */
       />
       <Filters
-        dogs={dogs}
+/*         dogs={dogs}
         setFilter={setFilter}
         dogTemp={dogTemp}
         change={change}
-        setChange={setChange}
+        setChange={setChange} */
       />
-      {/* <>
-        {background}
-      </> */}
     </div>
   )
 };

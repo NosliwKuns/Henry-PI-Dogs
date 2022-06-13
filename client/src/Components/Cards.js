@@ -2,15 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../scss/HomeView/Cards.scss';
 
-const Cards = ({ dogs, dogName, search, filter }) => {
+const Cards = ({ currentDogs }) => {
   
-  let change = search ? dogName : filter.length ? filter : dogs;
 
   let display;
-  console.log(change);
 
-  if( Array.isArray(change) ) {
-    display = change?.map(({ id, name, image, temperaments, weight }) => {
+  if( currentDogs.length ) {
+    display = currentDogs?.map(({ id, name, image, temperaments, weight }) => {
       return (
         <Link 
           to={`/detail/${id}`} 
@@ -22,7 +20,7 @@ const Cards = ({ dogs, dogName, search, filter }) => {
             <img src={image} alt={name}/>
           </section>
           <h1>{name}</h1>
-          <div>{temperaments?.join(' , ')}</div>
+          {/* <div>{temperaments?.join(' , ')}</div> */}
           <h3>{weight} Kilos</h3>
         </Link>
       )
