@@ -14,17 +14,20 @@ const Home = () => {
   const [apiBreed, setAPIBreed] = useState('');
   const [dbBreed, setDBBreed] = useState('');
   const [search, setSearch] = useState('');
-  const [transition, setTransition] = useState('transition transition-1 is-active');
-  const [filter, setFilter] = useState([])
+  const [transition, setTransition] = useState(false);
+  const [filter, setFilter] = useState([]);
+  const [change, setChange] = useState(false);
   const dogs = useSelector(state => state.allDogs);
   const dogName = useSelector(state => state.searchDogs);
   const dogTemp = useSelector(state => state.temperaments)
-  console.log(filter);
+  let a = 'transition transition-4 is-active'
   
   useEffect(() => {
-    dispatch(getAllDogs())
-    dispatch(searchByName(search))
-    dispatch(getTemperament())
+    setTimeout(() => {
+      dispatch(getAllDogs())
+      dispatch(searchByName(search))
+      dispatch(getTemperament())  
+    }, 1500);
   }, [dispatch, search, transition, filter, temperaments]);
   
   console.log(dogTemp)
@@ -42,14 +45,16 @@ const Home = () => {
   } */
   
   useEffect(() => {
-    setTransition(transition.split(' ').slice(0, 2).join(' '))
-/*     setTimeout(() => {
-    }, 500); */
-  }, [transition])
+    /* setTransition(transition.split(' ').slice(0, 2).join(' ')) */
+    setTimeout(() => {
+      setTransition(!transition)
+    }, 1900);
+  }, [])
 
   return (
     <div className='home'>
-      <div className={transition}></div>
+      <div className={transition ? 'y' : 'x'}></div>
+      <div className={transition ? 'y' : 'p'}></div>
       <NavBar 
         setSearch={setSearch}
       />
@@ -63,7 +68,9 @@ const Home = () => {
       <Filters
         dogs={dogs}
         setFilter={setFilter}
-        temperaments={temperaments}
+        dogTemp={dogTemp}
+        change={change}
+        setChange={setChange}
       />
       {/* <>
         {background}

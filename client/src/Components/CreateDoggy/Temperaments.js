@@ -7,6 +7,7 @@ const Temperaments = ({ input, setImput }) => {
   const dispatch = useDispatch();
   const [display, setDisplay] = useState([]);
   const temp = useSelector(state => state.temperaments);
+  console.log(display)
 
   const checkbox = (e) => {
     const checked = e.target.checked;
@@ -29,15 +30,14 @@ const Temperaments = ({ input, setImput }) => {
  
   return (
 
-    <div className='accordion'>
-      <div className='acordeon__item'>
-          <label htmlFor="item1" className='accordion__title'>
+    <div className='checkboxes'>
+          <label htmlFor="item1" className='checkboxes_title'>
           {display.length 
             ? display.map(t => t).join(', ')
             : 'Select a Temperament'}
           </label>
-          <input type='checkbox' name='accordion' id="item1"/>
-          <div className='accordion_content'>
+          <input type='checkbox' name='checkboxes' id="item1"/>
+          <div className='checkbox_content'>
           {
             temp.map(t => {
               let boolean = display.includes(t.name); 
@@ -57,7 +57,6 @@ const Temperaments = ({ input, setImput }) => {
             })
           }
         </div>
-     </div>
     </div>
   )
 };

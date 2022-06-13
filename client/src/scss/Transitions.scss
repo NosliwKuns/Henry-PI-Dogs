@@ -8,13 +8,15 @@
   background-color: rgb(73, 27, 27);
   opacity: 0;
   pointer-events: none;
-  transition: 1s ease-out;
+  transition: 3s ease-out; 
 }
 
 .transition-1.is-active {
   opacity: 1;
   pointer-events: all;
+  
 }
+
 
 .transition-2 {
   position: fixed;
@@ -44,4 +46,61 @@
 
 .transition-3.is-active {
   top: 0px;
+  opacity: 1;
 }
+
+.x {
+	position: absolute;
+  background-image: url('https://img.freepik.com/foto-gratis/vista-frontal-hermoso-perro-espacio-copia_23-2148786499.jpg?t=st=1655086517~exp=1655087117~hmac=1af88621f7c50a897145b3afe5b8e501fce1450735fbc50e2c6d330d221bb0b8&w=1380');
+	z-index: 998;
+	width: 100%;
+	left:0px;
+	top: 0;
+	right: 0;
+	height: 100vh;
+  /* opacity: 0; */
+	background-color: rgb(34, 115, 128);
+  /* transition: 3s ease-out; */
+	animation: melt-enter 2s ease-out ;
+}
+
+.p {
+	position: absolute;
+	z-index: 997;
+	width: 100%;
+	left:0px;
+	top: 0;
+	right: 0;
+	height: 100vh;
+	background-color: #e5e5e5;
+  animation: melt-end 2s ease-out;
+}
+
+.y {
+  display: none
+}
+
+@keyframes melt-enter {
+  0%{
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 0%);
+  }
+  50% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 0% 100%);
+  }
+}
+
+@keyframes melt-end {
+  0%{
+    clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);
+  }
+  /* 50% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  } */
+  100% {
+    clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 0% 100%);
+  }
+}
+
