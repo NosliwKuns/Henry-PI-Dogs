@@ -6,6 +6,8 @@ export const SEARCH_BY_NAME = 'SEARCH_BY_NAME';
 export const FILTER_BY_TEMP = 'FILTER_BY_TEMP';
 export const ALPHABETICAL_ORDER = 'ALPHABETICAL_ORDER';
 export const COMES_FROM = 'COMES_FROM';
+export const ORDER_BY_WEIGHT = 'ORDER_BY_WEIGHT';
+export const ORDER_BY_HEIGHT = 'ORDER_BY_HEIGHT';
 
 const objectToArray = (array) =>{
   const dogSearch = array.map( e => e);
@@ -55,7 +57,13 @@ export const comesFrom = (value) => async (dispatch) => {
   return dispatch({ type: COMES_FROM, payload: data })
 };
 
-export const orderBy
+export const orderByWeight = (value) => {
+  return { type: ORDER_BY_WEIGHT, payload: value}
+};
+
+export const orderByHeight = (value) => {
+  return { type: ORDER_BY_HEIGHT, payload: value}
+};
 
 
 

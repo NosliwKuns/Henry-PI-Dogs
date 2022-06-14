@@ -28,6 +28,7 @@ const [transition, setTransition] = useState(false);
   const pagination = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+  console.log(currentDogs)
   
   useEffect(() => {
     setTimeout(() => {

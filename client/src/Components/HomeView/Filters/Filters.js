@@ -2,20 +2,13 @@ import React, { useState, useEffect, useLayoutEffect } from 'react';
 import '../../../scss/HomeView/Filters.scss';
 import { filterByTemp } from '../../../Redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
-import { getTemperament, alphabeticalOrder, comesFrom, getAllDogs } from './../../../Redux/actions/index';
+import { getTemperament, alphabeticalOrder, comesFrom, getAllDogs, orderByWeight, orderByHeight } from './../../../Redux/actions/index';
 
 const Filters = () => {
   const dispatch = useDispatch();
   const bringAllDogs = useSelector(state => state.allDogs);
   const temps = useSelector(state => state.temperaments)
-  const[sed, setSed] = useState([])
 
-  
-  useEffect(() => {
-    setSed(bringAllDogs)
-  },[sed])
-
-  console.log(sed)
   /*   const [changeTwo, setChangeTwo] = useState(false);
   const [axis, setAxis] = useState({
     x: 0,
@@ -49,12 +42,20 @@ const Filters = () => {
 
   const handleClickFrom = (e) => {
     dispatch(comesFrom(e.target.value));
+  }
+
+  const handleClickWeights = (e) => {
+    dispatch(orderByWeight(e.target.value));
     console.log(bringAllDogs)
+  };
+
+  const handleClickHeights = (e) => {
+    dispatch(orderByHeight(e.target.value));
   }
 
   const handleClick = (e) => {
     dispatch(filterByTemp(e.target.value));
-  }
+  };
 
   return (
     <div className='filter'>
@@ -62,6 +63,10 @@ const Filters = () => {
       <button value='DESC' onClick={handleClickAlph}> Z-A </button>
       <button value='api' onClick={handleClickFrom}> Api </button>
       <button value='dataBase' onClick={handleClickFrom}> DataBase </button>
+      <button value='ASC' onClick={handleClickWeights}> mayor weight </button>
+      <button value='DESC' onClick={handleClickWeights}> menor weight </button>
+      <button value='ASC' onClick={handleClickHeights}> mayor height </button>
+      <button value='DESC' onClick={handleClickHeights}> menor height </button>
 
 <div class="accordion"> 
   
