@@ -11,10 +11,13 @@ const getAllDogsApi = async () => {
         id: info.id,
         name: info.name,
         image: info.image.url,
-        height: info.height.metric,
-        weight: info.weight.metric,
+        min_height: Number(info.height.metric.split(' - ')[0]),
+        max_height: Number(info.height.metric.split(' - ')[1]),
+        min_weight: Number(info.weight.metric.split(' - ')[0]),
+        max_weight: Number(info.weight.metric.split(' - ')[1]),
         life_span: info.life_span,
-        temperaments: info.temperament?.split(', ')
+        temperaments: info.temperament?.split(', '),
+        from: 'api'
       }
     ));
     return dog;

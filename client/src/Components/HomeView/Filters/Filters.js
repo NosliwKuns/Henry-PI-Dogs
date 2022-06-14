@@ -1,12 +1,22 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 import '../../../scss/HomeView/Filters.scss';
 import { filterByTemp } from '../../../Redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
+import { getTemperament, alphabeticalOrder, comesFrom, getAllDogs } from './../../../Redux/actions/index';
 
 const Filters = () => {
   const dispatch = useDispatch();
-  const prueba = useSelector(state => state.allDogs);
-/*   const [changeTwo, setChangeTwo] = useState(false);
+  const bringAllDogs = useSelector(state => state.allDogs);
+  const temps = useSelector(state => state.temperaments)
+  const[sed, setSed] = useState([])
+
+  
+  useEffect(() => {
+    setSed(bringAllDogs)
+  },[sed])
+
+  console.log(sed)
+  /*   const [changeTwo, setChangeTwo] = useState(false);
   const [axis, setAxis] = useState({
     x: 0,
     y: 0
@@ -33,78 +43,51 @@ const Filters = () => {
     '--maskX' : x,
     '--maskY' : y
   } */
+  const handleClickAlph = (e) => {
+    dispatch(alphabeticalOrder(e.target.value));
+  }
+
+  const handleClickFrom = (e) => {
+    dispatch(comesFrom(e.target.value));
+    console.log(bringAllDogs)
+  }
+
   const handleClick = (e) => {
-    dispatch(filterByTemp('Hardy'));
-    console.log(prueba)
+    dispatch(filterByTemp(e.target.value));
   }
 
   return (
     <div className='filter'>
-      <button onClick={handleClick}>sep</button>
-   {/*  <div className='holi' ref={titleContainer} onMouseMove={handleMouseMove} style={maskStyle}>
-      <div className='titleWrapper'>
-          <h1>Hola</h1>
-      </div>
-      <div className='titleWrapper cloneWrapper'>
-          <h1>Hola</h1>
-      </div>
-    </div> */}
-     {/*  <h1>Mongoouse</h1>
-      <Buttons
-        dogs={dogs}
-        setFilter={setFilter}
-      /> */}
-      {/* <div class='accordion'>
-        <div class="acordeon__item" onMouseOver={onMouseOver} onMouseOut={onMouseOut}>
-          <input type='checkbox' name='accordion' id="item1" checked={change}/>
-          <label htmlFor="item1" class='accordion__title'  >Temperaments A-D</label>
-          
-        <div className='accordion_content'>
-          {
-            one.map(e => 
-              <div className='included'>{e.name}</div>
-            )
-          }
-        </div>
-        </div>
-        <div class="acordeon__item" onMouseOver={onMouseOver} onMouseOut={onMouseOut}>
-          <input type='checkbox' name="acordeon" id="item2" checked={changeTwo}/>
-          <label htmlFor="item2" class='accordion__title'>Temperaments E-M</label>
-          <div className='accordion_content'>
-          {
-            two.map(e => 
-              <div className='included'>{e.name}</div>
-            )
-          }
-        </div>
-        </div>
-        <div class="acordeon__item">
-          <input type='checkbox' value='three' name="acordeon" id="item3"/>
-          <label htmlFor="item3" class='accordion__title'>Temperaments P-W</label>
-          <div className='accordion_content'>
-          {
-            three.map(e => 
-              <div className='included'>{e.name}</div>
-            )
-          }
-        </div>
-        </div>
-		  </div> */}
-{/*   <div class="accordion"> 
+      <button value='ASC' onClick={handleClickAlph}> A-Z </button>
+      <button value='DESC' onClick={handleClickAlph}> Z-A </button>
+      <button value='api' onClick={handleClickFrom}> Api </button>
+      <button value='dataBase' onClick={handleClickFrom}> DataBase </button>
+
+<div class="accordion"> 
   
   <a href="#" class="accordion-toggle">Hover for height animate</a>
-  <div class="accordion-content"> */}
-    {/* <div class="accordion-inner"> */} 
- {/*      {
-        one.map(e => 
-          <div className='included'>{e.name}</div>
+  <div class="accordion-content"> 
+    <div class="accordion-inner"> 
+      {
+        temps.map(e => 
+          <label
+            key={`TEM_${e.id}`} 
+            className='included'
+            htmlFor={e.id}
+          >
+          <input 
+            type='checkbox'
+            value={e.name}
+            id={e.id}
+            onClick={handleClick}
+          /> 
+            {e.name}
+          </label>
         )
       }
-      <p>For animate the "height" of element with CSS Transitions you need use "max-height".</p>
-      <p>If use the "height: auto", the effect not works. Is necessary some value for the CSS create a CSS animate, and you can use "max-height" with a great value for emulate this effect.</p> 
-    </div> */}
-  {/* </div> */}
-{/* </div>
+    </div> 
+   </div> 
+</div>
 
 <div class="accordion"> 
   
@@ -120,7 +103,7 @@ const Filters = () => {
       <div class='melt-leave-active'>
       <div class='melt-enter-active'></div>
 
-      </div> */}
+      </div> 
 
     </div>
   )

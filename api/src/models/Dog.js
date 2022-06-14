@@ -18,14 +18,24 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    height: {
-      type: DataTypes.STRING,
+    min_height: {
+      type: DataTypes.INTEGER,
     },
-    weight: {
-      type: DataTypes.STRING,
+    max_height: {
+      type: DataTypes.INTEGER,
+    },
+    min_weight: {
+      type: DataTypes.INTEGER,
+    },
+    max_weight: {
+      type: DataTypes.INTEGER,
     },
     life_span: {
       type: DataTypes.STRING,
     },
+    from: {
+      type: DataTypes.STRING,
+      defaultValue: 'dataBase'
+    }
   });
 };

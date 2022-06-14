@@ -1,14 +1,21 @@
-import { GET_ALL_DOGS } from '../actions';
-import { GET_TEMPERAMENTS } from '../actions';
-import { GET_DETAIL } from '../actions';
-import { SEARCH_BY_NAME } from '../actions';
-import { FILTER_BY_TEMP } from '../actions';
+import { 
+  GET_ALL_DOGS, 
+  GET_TEMPERAMENTS, 
+  GET_DETAIL, 
+  SEARCH_BY_NAME, 
+  FILTER_BY_TEMP, 
+  ALPHABETICAL_ORDER ,
+  COMES_FROM
+} from '../actions';
+
 
 const initialState = {
   allDogs: [],
   temperaments: [],
   detail: [],
   searchDogs: [],
+  api: [],
+  db: [], 
 };
 
 const rootReducer =  (state = initialState, action) => {
@@ -38,6 +45,23 @@ const rootReducer =  (state = initialState, action) => {
         ...state,
         allDogs: action.payload
       }
+    case ALPHABETICAL_ORDER:
+      const newArrDogs = state.allDogs.map(e => e);
+      const alphOrder = action.payload === 'ASC' ? 
+      [...newArrDogs.sort((a, b) => a.name.localeCompare(b.name))]
+      :
+      [...newArrDogs.sort((a, b) => b.name.localeCompare(a.name))];
+
+      return {
+        ...state,
+        allDogs: alphOrder
+      }
+    case COMES_FROM:
+      return {
+        ...state,
+        allDogs: action.payload
+      }
+
     default: return initialState;
   }
 };

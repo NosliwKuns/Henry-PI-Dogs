@@ -14,7 +14,7 @@ const SearchBar = () => {
       return alert("Please input a name to start the search");
     } else {
       dispatch(searchByName(search));
-      setSearch("");
+      setSearch('');
     }
   }
   return (

@@ -20,7 +20,7 @@ const Cards = ({ currentDogs }) => {
             <img src={image} alt={name}/>
           </section>
           <h1>{name}</h1>
-          {/* <div>{temperaments?.join(' , ')}</div> */}
+          <div>{temperaments?.join(' , ')}</div>
           <h3>{weight} Kilos</h3>
         </Link>
       )
