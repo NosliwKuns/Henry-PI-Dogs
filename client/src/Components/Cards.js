@@ -8,20 +8,27 @@ const Cards = ({ currentDogs }) => {
   let display;
 
   if( currentDogs.length ) {
-    display = currentDogs?.map(({ id, name, image, temperaments, weight }) => {
+    display = currentDogs?.map(({ id, name, image, temperaments, min_weight, max_weight }) => {
       return (
         <Link 
           to={`/detail/${id}`} 
-          key={id} className='card'
+          key={id}
+          className='over-content' 
         >
-          <div className='blob'></div>
-          <div className='blob two'></div>
-          <section>
+          <section className='image-content'>
             <img src={image} alt={name}/>
           </section>
-          <h1>{name}</h1>
+            <div className='blob'></div>
+            <div className='blob two'></div>
+
+          <section className='text'>
+          <h2>{name}</h2>
           <div>{temperaments?.join(' , ')}</div>
-          <h3>{weight} Kilos</h3>
+          <h3>{min_weight} - {max_weight} Kilos</h3>
+          </section>
+
+          <section className='card'>
+          </section>
         </Link>
       )
     });

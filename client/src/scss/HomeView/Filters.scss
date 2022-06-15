@@ -1,57 +1,3 @@
-/* .accordion input {
-	display: none;
-}
-
-.accordion__title {
-	display: block;
-	padding: 15px;
-	background: #000000;
-	color: #fff;
-	font-size: 20px;
-	cursor: pointer;
-  border: 1px solid #fff;
-	border-bottom: 1px solid #fff;
-}
-.accordion__title:hover {
-	background: #ba61cb;
-  color: #000000;
-  border-bottom: 1px solid #fff;
-}
-
-.accordion_content {
-  text-align: center;
-	height: 0;
-  width: 100%;
-  border: none;
-  font-size: 16px;
-	overflow: auto;
-	margin: 0;
-	transition: all 0.5s ease;
-
-	.included {
-		background: rgb(112, 35, 35);
-		border-bottom: 1px solid #000000;
-		cursor: pointer;
-	}
-	.help:hover {
-		background-color: aqua;
-	}
-}
-
-.accordion input:checked ~ .accordion_content{
-	height:540px;
-  padding-top: 1px;
-	color: #fff;
-  border-bottom: 1px solid #fff;
-  background-color: #000000;
-}
-
-
-.accordion input:checked ~ .accordion_content:hover {
-  background-color: #7524a7;
-  color: #000000;
-
-} */
 
 .accordion{ 
   display: block;
@@ -71,7 +17,7 @@
 				padding-right: 1em;
 
 				&:hover {
-					background:#08666a;
+					background:#ffffff;
 					transition: all 0.5s ease
 				}
 			}
@@ -105,7 +51,7 @@
   -ms-transition: background .1s linear;   
   -o-transition: background .1s linear;   
   transition: background .1s linear;   
-  background: #00b8c9;
+  background: #ffffff;
   border-radius: 3px;
   color: #fff;
   display: block;
@@ -116,7 +62,7 @@
   text-decoration: none;
   
   &:hover{
-    background: darken(#00b8c9, 15%);
+    background: darken(#ffffff, 15%);
   }
   
 }
@@ -147,20 +93,14 @@
 
 /* .melt-enter-active { 
 	position: absolute;
-}
-.melt-leave-active { 
-	position: absolute;
-	animation: 2s melt-leave;
-	animation-delay: 2s; 
-	z-index: 998;
-	width: 100%;
-	left:0px;
-	top: 0;
-	right: 0;
-	height: 100vh;
-	background-color: rgb(34, 115, 128);
-	animation: melt-enter 3s ease-in-out ;
 } */
+.wer { 
+	position: absolute;
+	height: 300px;
+	width: 300px;
+	background-color: rgb(34, 115, 128);
+	animation: melt-leave 3s ease-in-out ;
+}
 
 /* @keyframes melt-enter {
   0% {
@@ -169,14 +109,14 @@
   100% {
     clip-path: polygon(0% 100%, 100% 100%, 99.9% 100%, 100% 100%, 100% 0%, 0% 0%);
 	}
-}
+} */
 
 @keyframes melt-leave {
   0% {
-    clip-path: path('M0 0C8.33 -8.33 16.67 -12.5 25 -12.5C37.5 -12.5 36.57 -0.27 50 0C63.43 0.27 62.5 -34.37 75 -34.37C87.5 -34.37 87.5 -4.01 100 0C112.5 4.01 112.38 -18.34 125 -18.34C137.62 -18.34 138.09 1.66 150.48 0C162.86 -1.66 162.16 -25 174.54 -25C182.79 -25 191.28 -16.67 200 0L200 200L0 200L0 0Z');
+    clip-path: path('M468.5,319Q440,388,379,423.5Q318,459,260.5,427Q203,395,134.5,389.5Q66,384,46,317Q26,250,51,187Q76,124,131.5,89.5Q187,55,252.5,47.5Q318,40,370,82.5Q422,125,459.5,187.5Q497,250,468.5,319Z');
   }
   100% {
-    clip-path: path('M0 200C8.33 270.83 16.67 306.25 25 306.25C37.5 306.25 36.57 230.98 50 231.25C63.43 231.52 62.5 284.38 75 284.38C87.5 284.38 87.5 208.49 100 212.5C112.5 216.51 112.38 300.41 125 300.41C137.62 300.41 138.09 239.16 150.48 237.5C162.86 235.84 162.16 293.75 174.54 293.75C182.79 293.75 191.28 262.5 200 200L200 200L0 200L0 200Z');
+    clip-path: path('M468,311.5Q441,373,388,405Q335,437,285,395Q235,353,171.5,383.5Q108,414,78,361.5Q48,309,54,251.5Q60,194,95,153Q130,112,175.5,78.5Q221,45,276,59Q331,73,340.5,129Q350,185,422.5,217.5Q495,250,468,311.5Z');
 		color: #08666a;
   }
-} */
+}

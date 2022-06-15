@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react';
-import '../../../scss/HomeView/Filters.scss';
-import { filterByTemp } from '../../../Redux/actions';
+import '../../scss/HomeView/Filters.scss';
+import { filterByTemp } from '../../Redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
-import { getTemperament, alphabeticalOrder, comesFrom, getAllDogs, orderByWeight, orderByHeight } from './../../../Redux/actions/index';
+import { getTemperament, alphabeticalOrder, comesFrom, getAllDogs, orderByWeight, orderByHeight } from '../../Redux/actions/index';
 
 const Filters = () => {
   const dispatch = useDispatch();
@@ -67,6 +67,7 @@ const Filters = () => {
       <button value='DESC' onClick={handleClickWeights}> menor weight </button>
       <button value='ASC' onClick={handleClickHeights}> mayor height </button>
       <button value='DESC' onClick={handleClickHeights}> menor height </button>
+
 
 <div class="accordion"> 
   

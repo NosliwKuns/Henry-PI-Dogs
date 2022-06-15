@@ -1,0 +1,65 @@
+.pagination {
+  display: grid;
+  /* grid-template-columns: minmax(500, 1.5fr); */
+  grid-template-areas:
+    'p-container'
+  ;
+  justify-content: center;
+  height: 50px;
+}
+
+.p-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+  grid-area: p-container;
+  max-width: 1000px;
+}
+
+
+.btn {
+  background-color: #000000;
+  border: solid 1px #fffd;
+  padding: 15px 0 15px 0;
+  margin: 0 5px 0 5px;
+  color : #fff;
+  font-size : 15px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 50px;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  color : #C2FF05;
+}
+
+
+.active {
+  background-color: #C2FF05;
+  border: solid 1px #C2FF05;
+  color: #000000;
+}
+
+.active:hover {
+  color : #000000;
+}
+
+.disabled {
+  color: #7e7e7e;
+  border: solid 1px #7e7e7e;
+  height: 50px;
+}
+
+.disabled:hover {
+  color: #7e7e7e;
+  cursor: default;
+}
+
+
+@media screen and (max-width: 500px) {
+  .btn {
+    width: 100%;
+    margin: 0;
+    border-radius: 0%;
+  }
+}
