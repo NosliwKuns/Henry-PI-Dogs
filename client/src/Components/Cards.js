@@ -14,20 +14,54 @@ const Cards = ({ currentDogs }) => {
           to={`/detail/${id}`} 
           key={id}
           className='over-content' 
-        >
+        > 
+          <svg className='ball' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.73 50.73">
+            <defs>
+              {/* <style>.cls-1{fill:#00a19a;}.cls-2{fill:#2fac66;}</style> */}
+            </defs>
+            <title>Recurso 2ball</title>
+            <g id="Capa_2" data-name="Capa 2">
+              <g id="Capa_1-2" data-name="Capa 1">
+                <path class="cls-2" d="M44.73,22.37c0,.46,0,.92,0,1.37a22.22,22.22,0,0,1-6.47,14.41,22.36,22.36,0,1,1-18-38C20.9,0,21.63,0,22.37,0A21.91,21.91,0,0,1,26.2.33a22.37,22.37,0,0,1,18.53,22Z"/>
+                <circle class="cls-3" cx="11.28" cy="13.5" r="3.62"/>
+                <path class="cls-2" d="M38.21,38.15A22.47,22.47,0,0,1,33.09,42a3.62,3.62,0,1,1,5.12-3.85Z"/>
+                <circle class="cls-3" cx="27.86" cy="19.23" r="3.62"/>
+                <circle class="cls-3" cx="14.35" cy="31.58" r="3.53"/>
+                <path class="cls-3" d="M44.73,22.37c0,.46,0,.92,0,1.37l-.1,0a3.54,3.54,0,0,1-.45-6.49A22.4,22.4,0,0,1,44.73,22.37Z"/>
+                <path class="cls-3" d="M26.47,3.21A3.53,3.53,0,0,1,19.79.9a3.42,3.42,0,0,1,.39-.79C20.9,0,21.63,0,22.37,0A21.91,21.91,0,0,1,26.2.33,3.52,3.52,0,0,1,26.47,3.21Z"/>
+              </g>
+            </g>
+          </svg>
+
+          <svg className='huesito' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 146.34 67.9">
+            <defs>
+             {/*  <style>.cls-1{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:2px;}
+              </style> */}
+            </defs>
+            <title>Recurso 2huesito</title>
+            <g id="Capa_2" data-name="Capa 2">
+              <g id="Layer_1" data-name="Layer 1">
+                <path class="cls-1" d="M119.42,1.13a19.21,19.21,0,0,1,11.06,2.16,16.56,16.56,0,0,1,7.9,9.45,18.21,18.21,0,0,1,.53,9.68,30.57,30.57,0,0,1-2.8,7.19,2.72,2.72,0,0,0-.12,2.51c1.81,3.52,3.43,7.35,3.34,11.38A17.64,17.64,0,0,1,135,55.15c-5.15,5.62-12.9,6.65-20.07,5.08a22,22,0,0,1-8.5-3.68c-2.48-1.86-3.62-5.39-6.47-6.61a10.48,10.48,0,0,0-4.64-.71H46.37c-6.31,0-8.08,3.6-12.73,7.08-8.07,6-21.21,6.56-28.28-1.16A17.48,17.48,0,0,1,1,44.35c-.31-4,1.14-7.87,2.9-11.39a3.2,3.2,0,0,0,.38-3.19,27.12,27.12,0,0,1-3.26-9.56A17.92,17.92,0,0,1,5.66,6.52,18.16,18.16,0,0,1,20.31,1.08c4.9.47,10.74,1.56,14.39,5.11,1.26,1.22,2.22,2.72,3.4,4,2.56,2.78,6.23,2.88,9.75,2.74,4.25-.18,8.49-.18,12.75-.17l29.79.08c6,0,10.08-.54,14-5.4C107.9,2.94,113.67,1.74,119.42,1.13Z"/>
+              </g>
+            </g>
+          </svg>
           <section className='image-content'>
             <img src={image} alt={name}/>
           </section>
-            <div className='blob'></div>
+            <div className='blob one'></div>
             <div className='blob two'></div>
 
           <section className='text'>
-          <h2>{name}</h2>
+          <h1 className='elegantshadow'>{name}</h1>
           <div>{temperaments?.join(' , ')}</div>
           <h3>{min_weight} - {max_weight} Kilos</h3>
           </section>
 
           <section className='card'>
+            <div className='circle c-one'></div>
+            <div className='circle c-two'></div>
+            <div className='circle c-three'></div>
+            <div className='circle c-four'></div>
           </section>
         </Link>
       )

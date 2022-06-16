@@ -4,29 +4,85 @@
   justify-content: center;
   gap: 4em 3em;
   max-width: 1400px;
-  margin: 0 0 2em 2em;
+
+  .ball {
+    position: absolute;
+    z-index: 4;
+    width: 9%;
+    right: 100px;
+    top: -40px;
+    animation: ball 3s infinite ease;
+    /* <style>.cls-1{fill:none;stroke:#fff;stroke-miterlimit:10;stroke-width:2px;}.cls-2{fill:#00a19a;}.cls-3{fill:#2fac66;}</style> */
+    /* .cls-0 {
+      fill: none;
+      stroke: #fff;
+      stroke-miterlimit: 10;
+      stroke-width:3px;
+      filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+      
+    } */
+
+    .cls-2 {
+      fill: #eb8c33;
+      filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+      transform: rotate(360deg);
+    }
+
+    .cls-3 {
+      fill: #6c68d2;
+      
+    }
+  }
+
+  .huesito {
+    position: absolute;
+    z-index: 4;
+    width: 22%;
+    left: 38px;
+    bottom: 10px;
+
+    .cls-1{
+      height: 100px;
+      fill:#fefefe;
+      stroke-width: 3px;
+      /* stroke: #6a181873; */
+      stroke-miterlimit:10;
+
+    }
+    
+    path {
+      stroke-dasharray: 60 172;
+      stroke-linecap: round;
+      filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+    }
+
+  }
   
   
   .over-content{
     position: relative;
     display: grid;
+    height: 100%;
     
     .image-content {
       position: absolute;
-      height: 12em;
-      width: 12em;
+      height: 11em;
+      width: 11em;
       border-radius: 1em;
       overflow: hidden;
       display: flex;
-      left: 0;
-      top: 0;
+      left: 15px;
+      top: 20px;
       justify-content: center;
       align-items: center;
       border-radius: 50%;
+      border: #fff .35em solid;
+      box-shadow: 6px 6px 0px #73738f81;
+      animation: ball 3s infinite ease;
       z-index: 2;
 
       img {
-        height: 12em;
+        height: 9em;
       }
     }
   }
@@ -35,22 +91,25 @@
     position:absolute;
     width: 13em;
     height: 11em;
-    background: #000000;
     display: flex;
     left: 0;
-    bottom: 0;
+    top: 0;
     z-index: 1;
     justify-content: center;
-    /* filter: drop-shadow(0px 0 5px rgb(42, 201, 201)); */
     align-items: center;
+    
+  }
+  
+  .one {
+    
+    background: #8585ff;
     animation: blob_1 3.3s infinite ease-in-out;
   }
 
   .two {
-    left: 0;
-    bottom: 0;
+    top: 35px;
     animation: blob_1 5.3s infinite ease-in-out;
-    background: #9f8b89
+    background: #5be2e9
   }
  
 
@@ -58,19 +117,77 @@
       position: relative;
       padding: 3em;
       overflow: hidden;
-      background-color: #fefdfe;
-      /* box-shadow: 0px 160px 0px 0px rgb(0, 0, 0) inset; */
+      background-color: #dfe6f6;
+      box-shadow:  6px 6px 0px #a8b5f6,
+             -6px -6px 0px #fbfbfe;
       border-radius: 1em;
       min-width: 3em;
       height: 15em;
       margin-left: 4em;
+
+      .circle {
+        position: absolute;
+        border-radius: 50%
+      }
+
+      .c-one {
+        background: #5be2e9;
+        top: -30px;
+        right: -40px;
+        height: 10em;
+        width: 10em;
+      }
+
+      .c-two {
+        background: #8585FF;
+        top: 130px;
+        right: 90px;
+        height: 5em;
+        width: 5em;
+      }
+
+      .c-three {
+        background: #8585FF;
+        bottom: -60px;
+        left: 90px;
+        height: 10em;
+        width: 10em;
+      }
+
+      .c-four {
+        background: #5be2e9;
+        top: -12px;
+        left: 230px;
+        height: 3em;
+        width: 3em;
+      }
     }
 
   .text {
     position: absolute;
-    left: 16em;
+    left: 13em;
     top: 2em;
     z-index: 2;
+    max-width: 20em;
+    text-align: center;
+
+    h1 {
+      font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+      font-size: 25px;
+      text-transform: uppercase;
+      text-rendering: optimizeLegibility;
+      margin-bottom: 5em;
+      
+      &.elegantshadow {
+        color: #131313;
+        letter-spacing: .15em;
+        text-shadow: 
+          1px -1px 0 #686c87, 
+          -1px 2px 1px #7b82a9, 
+          -2px 4px 1px #7f85a5, 
+          -3px 6px 1px #a8b5f6, 
+      }
+    }
   }
 }
 
@@ -93,14 +210,12 @@
   }
 }
 
-/* @keyframes blob_2 {
+@keyframes ball {
   0% {
-    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    transform:scale(1);
+
+  } 50% {
+    transform:scale(1.1)
   }
-  50% {
-    border-radius: 40% 60% 71% 29% / 34% 61% 39% 66%;
-  }
-  100% {
-    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-  }
-} */
+}
+

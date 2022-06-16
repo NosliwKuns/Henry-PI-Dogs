@@ -21,13 +21,13 @@ function Pagination({ pageNumber, setPageNumber, totalSize, dogsPerPage }) {
       console.log('holi')
       tempNumberOfPages = [...numberOfPages];
     }
-    else if(pageNumber >= 1 && pageNumber <= 3) {
+    else if(pageNumber >= 1 && pageNumber <= 4) {
       tempNumberOfPages = [1, 2, 3, 4, 5, dotsInicial, pages]
     } 
-    else if (pageNumber === 4) {
+    /* else if (pageNumber === 4) {
       const sliced = numberOfPages.slice(0, 5);
       tempNumberOfPages = [...sliced, dotsInicial, pages]
-    } 
+    }  */
     else if (pageNumber > 4 && pageNumber < pages - 2) {
       const  sliced1 = numberOfPages.slice(pageNumber - 2, pageNumber);
       const sliced2 = numberOfPages.slice(pageNumber, pageNumber + 1);

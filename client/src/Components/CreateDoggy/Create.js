@@ -75,7 +75,6 @@ const Create = () => {
   return (
     <div>
     <div className={transition}></div>
-    <NavBar />
     <form onSubmit={handleSubmit}>
       <div>
         <label>Name: </label>

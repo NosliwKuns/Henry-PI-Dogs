@@ -43,7 +43,7 @@ const Home = () => {
   }, [])
 
   return (
-    <div className='home'> 
+    <> 
         
 {/*       <div className='back-blob'>
       <svg viewBox="0 0 800 500" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" width="2000%" id="blobSvg">
@@ -69,18 +69,19 @@ const Home = () => {
       </div> */}
       <div className={transition ? 'y' : 'x'}></div>
       <div className={transition ? 'y' : 'p'}></div>
-      <NavBar />
-      <Cards 
-        currentDogs={currentDogs}
-      />
-      <Filters />
+      <div className='main-content'>
+        <Cards 
+          currentDogs={currentDogs}
+        />
+        <Filters />
+      </div>
       <Pagination 
         pageNumber={pageNumber}
         setPageNumber={setPageNumber}
         totalSize={totalSize}
         dogsPerPage={dogsPerPage}
       />
-  </div>
+  </>
   )
 };
 

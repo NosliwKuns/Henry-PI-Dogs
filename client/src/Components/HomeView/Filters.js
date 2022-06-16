@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react';
 import '../../scss/HomeView/Filters.scss';
+import '../../scss/HomeView/DogHome.scss';
 import { filterByTemp } from '../../Redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTemperament, alphabeticalOrder, comesFrom, getAllDogs, orderByWeight, orderByHeight } from '../../Redux/actions/index';
@@ -59,19 +60,21 @@ const Filters = () => {
 
   return (
     <div className='filter'>
-      <button value='ASC' onClick={handleClickAlph}> A-Z </button>
-      <button value='DESC' onClick={handleClickAlph}> Z-A </button>
-      <button value='api' onClick={handleClickFrom}> Api </button>
-      <button value='dataBase' onClick={handleClickFrom}> DataBase </button>
-      <button value='ASC' onClick={handleClickWeights}> mayor weight </button>
-      <button value='DESC' onClick={handleClickWeights}> menor weight </button>
-      <button value='ASC' onClick={handleClickHeights}> mayor height </button>
-      <button value='DESC' onClick={handleClickHeights}> menor height </button>
-
+      
+      <section className='btn-container'>
+        <button value='ASC' onClick={handleClickAlph}> A-Z </button>
+        <button value='DESC' onClick={handleClickAlph}> Z-A </button>
+        <button value='api' onClick={handleClickFrom}> Api </button>
+        <button value='dataBase' onClick={handleClickFrom}> DataBase </button>
+        <button value='ASC' onClick={handleClickWeights}> Min Weight </button>
+        <button value='DESC' onClick={handleClickWeights}> Max Weight </button>
+        <button value='ASC' onClick={handleClickHeights}> Min height </button>
+        <button value='DESC' onClick={handleClickHeights}> Max height </button>
+      </section>
 
 <div class="accordion"> 
   
-  <a href="#" class="accordion-toggle">Hover for height animate</a>
+  <a href="#" class="accordion-toggle">Filter by temperament:</a>
   <div class="accordion-content"> 
     <div class="accordion-inner"> 
       {
@@ -97,7 +100,7 @@ const Filters = () => {
 
 <div class="accordion"> 
   
-  <a href="#" class="accordion-toggle">Hover for height animate</a>
+  <a href="#" class="accordion-toggle">Origin of breeds</a>
   <div class="accordion-content">
     <div class="accordion-inner"> 
       <p>For animate the "height" of element with CSS Transitions you need use "max-height".</p>
