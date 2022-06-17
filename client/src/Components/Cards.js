@@ -15,24 +15,7 @@ const Cards = ({ currentDogs }) => {
           key={id}
           className='over-content' 
         > 
-          <svg className='ball' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.73 50.73">
-            <defs>
-              {/* <style>.cls-1{fill:#00a19a;}.cls-2{fill:#2fac66;}</style> */}
-            </defs>
-            <title>Recurso 2ball</title>
-            <g id="Capa_2" data-name="Capa 2">
-              <g id="Capa_1-2" data-name="Capa 1">
-                <path class="cls-2" d="M44.73,22.37c0,.46,0,.92,0,1.37a22.22,22.22,0,0,1-6.47,14.41,22.36,22.36,0,1,1-18-38C20.9,0,21.63,0,22.37,0A21.91,21.91,0,0,1,26.2.33a22.37,22.37,0,0,1,18.53,22Z"/>
-                <circle class="cls-3" cx="11.28" cy="13.5" r="3.62"/>
-                <path class="cls-2" d="M38.21,38.15A22.47,22.47,0,0,1,33.09,42a3.62,3.62,0,1,1,5.12-3.85Z"/>
-                <circle class="cls-3" cx="27.86" cy="19.23" r="3.62"/>
-                <circle class="cls-3" cx="14.35" cy="31.58" r="3.53"/>
-                <path class="cls-3" d="M44.73,22.37c0,.46,0,.92,0,1.37l-.1,0a3.54,3.54,0,0,1-.45-6.49A22.4,22.4,0,0,1,44.73,22.37Z"/>
-                <path class="cls-3" d="M26.47,3.21A3.53,3.53,0,0,1,19.79.9a3.42,3.42,0,0,1,.39-.79C20.9,0,21.63,0,22.37,0A21.91,21.91,0,0,1,26.2.33,3.52,3.52,0,0,1,26.47,3.21Z"/>
-              </g>
-            </g>
-          </svg>
-
+        
           <svg className='huesito' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 146.34 67.9">
             <defs>
              {/*  <style>.cls-1{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:2px;}

@@ -18,8 +18,8 @@ $neo-thickness : number-size/4;
   grid-template-columns: auto 1fr;
   grid-area: main;
   gap: 0 2em;
-  max-width: 1700px;
-  margin-top: 5vh
+  max-width: 1600px;
+  margin-top: 13vh;
 }
 .pagination {
   grid-area: pagination;
@@ -36,11 +36,11 @@ $neo-thickness : number-size/4;
     '. pagination .'
     ;
   gap: 1em;
-  min-height: 100vh;
-  max-width: 100vw;
-  background: #fff;
-  background: linear-gradient(-45deg, $bg, $light);
-  /* overflow: auto; */
+/*   min-height: 100vh;
+  max-width: 100vw; */
+  /* background: #fff;
+  background: linear-gradient(-45deg, $bg, $light); */
+  /* overflow: hidden; */
 
 
   .custom-shape-divider-top-1655275786 {

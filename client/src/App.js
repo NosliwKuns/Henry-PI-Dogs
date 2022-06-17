@@ -11,9 +11,9 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className='app'>
       <NavBar />
       <Route exact path='/' component={LandingPage} />
+      <div className='app'>
       <Route path='/home' component={Home} />
       <Route path='/create' component={Create} />
       <Route path='/detail/:id' component={CardDetail} />
