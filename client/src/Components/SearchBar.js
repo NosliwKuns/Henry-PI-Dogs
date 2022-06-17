@@ -18,22 +18,24 @@ const SearchBar = () => {
     }
   }
   return (
-    <>
-      <form className="search-bar">
-        <input
-          type="text"
-          className="search"
-          value={search}
-          placeholder='Search...'
-          onChange={(e) => setSearch(e.target.value)}
-        />
-        <button
-          onClick={handleClick}
-          className='btn-search'
-        > X
-        </button>
-      </form>
-    </>
+    <div className='search-bar'>
+      <div className='search-container'>
+        <form>
+          <input
+            type='text'
+            className='search'
+            value={search}
+            placeholder='Search...'
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <button
+            onClick={handleClick}
+            className='btn-search'
+          > X
+          </button>
+        </form>
+      </div>
+    </div>
   )
 };
 

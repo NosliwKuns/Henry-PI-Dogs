@@ -9,7 +9,7 @@ body {
 *:after {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
-    position: relative;
+    /* position: relative; */
     -webkit-animation-timing-function: var(--easing) !important;
             animation-timing-function: var(--easing) !important;
 }
