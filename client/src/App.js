@@ -13,7 +13,7 @@ function App() {
     <BrowserRouter>
       <Route exact path='/' component={LandingPage} />
       <div className='app'>
-      <NavBar />
+      {/* <NavBar /> */}
       <Route path='/home' component={Home} />
       <Route path='/create' component={Create} />
       <Route path='/detail/:id' component={CardDetail} />

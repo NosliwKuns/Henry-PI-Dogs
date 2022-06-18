@@ -69,13 +69,16 @@ const rootReducer =  (state = initialState, action) => {
     case ORDER_BY_WEIGHT:
       const orderByWeight = action.payload === 'ASC' ?
       [...state.allDogs].sort((a, b) => {
+
           /* if(a.min_weight === null) { return 0 } */
+          if(!a.min_weight) { a.min_weight = a.max_weight}
           if (a.min_weight < b.min_weight) { return -1 }
           if (b.min_weight < a.min_weight) { return 1 }
           return 0;
       }) :
       [...state.allDogs].sort((a, b) => {
           /* if(a.max_weight === null) { return 0 } */
+          if(!a.max_weight) { a.max_weight = a.min_weight}
           if (a.max_weight < b.max_weight) { return 1; }
           if (b.max_weight < a.max_weight) { return -1; }
           return 0;
@@ -88,15 +91,15 @@ const rootReducer =  (state = initialState, action) => {
     case ORDER_BY_HEIGHT:
       const orderByHeight = action.payload === 'ASC' ?
       [...state.allDogs].sort((a, b) => {
-          if(a.min_height === null) { return 0 }
-          if (a.min_height < b.min_height) { return 1 }
-          if (b.min_height < a.min_height) { return -1 }
+          /* if(a.min_height === null) { return 0 } */
+          if (a.min_height < b.min_height) { return -1 }
+          if (b.min_height < a.min_height) { return 1 }
           return 0;
       }) :
       [...state.allDogs].sort((a, b) => {
-          if(a.max_weight === null) { return 0 }
-          if (a.max_weight < b.max_weight) { return -1; }
-          if (b.max_weight < a.max_weight) { return 1; }
+          /* if(a.max_weight === null) { return 0 } */
+          if (a.min_height < b.min_height) { return 1; }
+          if (b.min_height < a.min_height) { return -1; }
           return 0;
       })
       return {

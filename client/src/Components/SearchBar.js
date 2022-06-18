@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { searchByName } from './../Redux/actions/index';
+import SearchLogo from '../Images/search.gif'
 
 const SearchBar = () => {
 
@@ -19,22 +20,24 @@ const SearchBar = () => {
   }
   return (
     <div className='search-bar'>
-      <div className='search-container'>
-        <form>
-          <input
-            type='text'
-            className='search'
-            value={search}
-            placeholder='Search...'
-            onChange={(e) => setSearch(e.target.value)}
+      <form>
+        <input 
+          id="searchBar" 
+          className="searchbar" 
+          type="text" 
+          value={search}
+          placeholder="Search..."
+          onChange={(e) => setSearch(e.target.value)}
           />
-          <button
-            onClick={handleClick}
-            className='btn-search'
-          > X
-          </button>
-        </form>
-      </div>
+        <div>
+        <button
+          className='btn-search'
+          onClick={handleClick}
+          >.
+        </button>
+        <img src="https://img.icons8.com/ios-filled/50/undefined/search--v1.png"/>
+        </div>
+      </form>
     </div>
   )
 };

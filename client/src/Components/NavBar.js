@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom'
 import {Link } from 'react-router-dom';
-import SearchBar from './SearchBar';
 import '../scss/NavBar.scss';
 
 const NavBar = () => {
@@ -19,7 +18,7 @@ const NavBar = () => {
   return (
     <nav className='nav-bar'>
       <div class='nav-container'>
-        <h1>Doggy Paw</h1>
+        <h1>Doggy Day</h1>
 
         <div class='menu'>
           <Link to='/home' 
@@ -36,9 +35,8 @@ const NavBar = () => {
             className={active === 'favs' ? 'is-active' : ''} 
             onClick={() =>  setActive('favs')}
             >Favs</Link>
-          <Link to='/Contact'>Home</Link>
+          {/* <Link to='/Contact'>Home</Link> */}
         </div>
-
         <button 
           className={ham ? `hamburger` : 'hamburger is-active'}
           onClick={handleClick}

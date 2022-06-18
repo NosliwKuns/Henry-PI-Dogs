@@ -9,17 +9,19 @@ const Cards = ({ currentDogs }) => {
 
   if( currentDogs.length ) {
     display = currentDogs?.map(({ id, name, image, temperaments, min_weight, max_weight }) => {
+      let dua;
+      if(!min_weight && !max_weight) dua = 'Unknown';
+      if(!min_weight && max_weight) dua = `${max_weight} kgs`;
+      if(min_weight && !max_weight) dua = `${min_weight} kgs`;
+      if(min_weight && max_weight) dua = `${min_weight} - ${max_weight} kgs`
       return (
         <Link 
           to={`/detail/${id}`} 
           key={id}
           className='over-content' 
         > 
-        
           <svg className='huesito' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 146.34 67.9">
             <defs>
-             {/*  <style>.cls-1{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:2px;}
-              </style> */}
             </defs>
             <title>Recurso 2huesito</title>
             <g id="Capa_2" data-name="Capa 2">
@@ -35,16 +37,12 @@ const Cards = ({ currentDogs }) => {
             <div className='blob two'></div>
 
           <section className='text'>
-          <h1 className='elegantshadow'>{name}</h1>
-          <div>{temperaments?.join(' , ')}</div>
-          <h3>{min_weight} - {max_weight} Kilos</h3>
-          </section>
-
-          <section className='card'>
-{/*             <div className='circle c-one'></div>
-            <div className='circle c-two'></div>
-            <div className='circle c-three'></div>
-            <div className='circle c-four'></div> */}
+            <h1 className='elegantshadow'>{name}</h1>
+            <div>{temperaments?.join(' , ')}</div>
+            <h3>{dua}</h3>
+      
+            </section>
+            <section className='card'>
           </section>
         </Link>
       )

@@ -15,8 +15,10 @@ const Create = () => {
   const [input, setImput] = useState({
     name: '',
     image: '',
-    weight: '',
-    height: '',
+    min_height: '',
+    max_height: '',
+    min_weight: '',
+    max_weight: '',
     life_span: '',
     temperament: []
   });
@@ -58,8 +60,10 @@ const Create = () => {
       setImput({
         name: '',
         image: '',
-        weight: '',
-        height: '',
+        min_height: '',
+        max_height: '',
+        min_weight: '',
+        max_weight: '',
         life_span: '',
         temperament: []
       });
@@ -69,7 +73,8 @@ const Create = () => {
     history.push('/home');
   };
 
-  console.log(input)
+  console.log(input);
+  console.log(typeof input.min_height);
   console.log(errors);
 
   return (
@@ -102,31 +107,60 @@ const Create = () => {
           <p>{errors.image}</p>
         </div>
       </div>
+
       <div>
-        <label>Height: </label>
+        <h3>Height</h3>
+        <label>Min: </label>
         <input
           type='text'
-          value={input.height}
-          name='height'
-          placeholder='20 - 60'
+          value={input.min_height}
+          name='min_height'
+          placeholder='20'
           onChange={handleChange}
         />
         <div>
-          <p>{errors.height}</p>
+          <p>{errors.min_height}</p>
+        </div>
+
+        <label>Max: </label>
+        <input
+          type='text'
+          value={input.max_height}
+          name='max_height'
+          placeholder='60'
+          onChange={handleChange}
+        />
+        <div>
+          <p>{errors.max_height}</p>
         </div>
       </div>
+
       <div>
-        <label>Weight: </label>
+        <h3>Weight</h3>
+        <label>Min: </label>
         <input
           type='text'
-          value={input.weight}
-          name='weight'
-          placeholder="24 - 32"
+          value={input.min_weight}
+          name='min_weight'
+          placeholder="24"
           onChange={handleChange}
         />
         <div>
-          <p>{errors.weight}</p>
+          <p>{errors.min_weight}</p>
         </div>
+
+        <label>Max: </label>
+        <input
+          type='text'
+          value={input.max_weight}
+          name='max_weight'
+          placeholder="32"
+          onChange={handleChange}
+        />
+        <div>
+          <p>{errors.max_weight}</p>
+        </div>
+
       </div>
       <div>
         <label>Life Span: </label>
