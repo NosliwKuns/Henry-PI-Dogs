@@ -26,20 +26,20 @@ const Home = () => {
   
   useEffect(() => {
     /* setTimeout(() => { */
-      dispatch(getAllDogs())
-      dispatch(getTemperament())  
+    dispatch(getAllDogs())
+    dispatch(getTemperament())  
    /*  }, 1500); */
   }, [dispatch, transition]);
   
 
 
   
-  useEffect(() => {
-    /* setTransition(transition.split(' ').slice(0, 2).join(' ')) */
-    setTimeout(() => {
-      setTransition(!transition)
-    }, 1900);
-  }, [])
+  // useEffect(() => {
+  //   /* setTransition(transition.split(' ').slice(0, 2).join(' ')) */
+  //   setTimeout(() => {
+  //     setTransition(!transition)
+  //   }, 1900);
+  // }, [])
   let display;
 
   if(allDogs.length) {

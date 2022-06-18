@@ -73,8 +73,7 @@ const Create = () => {
     history.push('/home');
   };
 
-  console.log(input);
-  console.log(typeof input.min_height);
+  console.log(input.temperament);
   console.log(errors);
 
   return (
@@ -178,7 +177,10 @@ const Create = () => {
       <Temperaments
         input={input} 
         setImput={setImput}
-      />  
+      />
+      <div>
+          <p>{errors.temperament}</p>
+      </div> 
       <div>
         <button>Cancel</button>
         <button type="submit">

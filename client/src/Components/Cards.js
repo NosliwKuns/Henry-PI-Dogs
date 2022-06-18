@@ -7,13 +7,16 @@ const Cards = ({ currentDogs }) => {
 
   let display;
 
-  if( currentDogs.length ) {
+  if( currentDogs.length && Array.isArray(currentDogs) ) {
     display = currentDogs?.map(({ id, name, image, temperaments, min_weight, max_weight }) => {
       let dua;
+      /* let temps; */
       if(!min_weight && !max_weight) dua = 'Unknown';
       if(!min_weight && max_weight) dua = `${max_weight} kgs`;
       if(min_weight && !max_weight) dua = `${min_weight} kgs`;
       if(min_weight && max_weight) dua = `${min_weight} - ${max_weight} kgs`
+      /* if(temperaments && typeof temperaments[0] === 'object') temps = temperaments.map(e => e.name).join(', ')
+      else temps = temperaments?.join(', ') */
       return (
         <Link 
           to={`/detail/${id}`} 
@@ -40,7 +43,6 @@ const Cards = ({ currentDogs }) => {
             <h1 className='elegantshadow'>{name}</h1>
             <div>{temperaments?.join(' , ')}</div>
             <h3>{dua}</h3>
-      
             </section>
             <section className='card'>
           </section>

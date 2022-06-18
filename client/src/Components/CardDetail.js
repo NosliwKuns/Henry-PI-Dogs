@@ -15,19 +15,39 @@ const CardDetail = () => {
   useEffect(() => {
     dispatch(getDetail(id))
   },[dispatch, id] )
-  let detail = useSelector(state => state.detail)
+  let { name, 
+        image, 
+        min_height,
+        max_height, 
+        min_weight, 
+        max_weight, 
+        temperaments,
+        life_span 
+  } = useSelector(state => state.detail);
+  let temps;
+  if(temperaments && typeof temperaments[0] === 'object') {
+  temps = temperaments.map(e => e.name).join(' , ');
+  } else {
+    temps = temperaments?.join(' , ');
+  }
+    
   return (
     <div>
       <div className={transition}></div>
       <h1>
-        {detail.name}
+        {name}
       </h1>
-      <img src={detail.image} alt={detail.name} />
-      <h3>Height: {detail.height}</h3>
-      <h3>Weight: {detail.weight}</h3>
-      <h3>Life Span: {detail.life_span}</h3>
-      <h3>Temperaments: {detail.temperaments?.map(d => d).join(' , ')}</h3>
-      
+      <img src={image} alt={name} />
+      <h3>Temperaments:</h3>
+      <p>{temps}</p>
+      <h3>Height:</h3>
+      <p>Min: {min_height ? min_height : 'Unknown'}</p>
+      <p>Max: {max_height ? max_height : 'Unknown'}</p>
+      <h3>Weight</h3>
+      <p>Min: {min_weight ? min_weight : 'Unknown'}</p>
+      <p>Max: {max_weight ? max_weight : 'Unknown'}</p>
+      <h3>Life Span: </h3>
+      <p>{life_span}</p>
     </div>
   )
 };

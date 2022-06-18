@@ -36,7 +36,7 @@ const getDetailById = async (req, res) => {
     if(idBreed === null) {
       res.status(404).json('Dog not found in database')
     } else {
-      let dog = allDogs.find(dog => dog.id === parseInt(idBreed));
+      let dog = allDogs.find(dog => dog.id == idBreed);
       res.json(dog);
     }
   } catch (error) {

@@ -15,7 +15,7 @@ const validateForm = (input) => {
   //-------------------------image-----------------------//
   /* if (!input.image) {
     errors.image = 'It cannot be empty'
-  } else  */if (!regExp.test(input.image)) {
+  } else  */if (input.image.length && !regExp.test(input.image)) {
     errors.image = 'Url invalid'
   } 
 
@@ -59,13 +59,13 @@ const validateForm = (input) => {
     errors.max_weight = 'Must be a number with a maximum of 2 digits'
   }
 
+  //-------------------------Life Span-----------------------//
   if (!input.life_span) {
     errors.life_span = 'It cannot be empty'
   } else if (!regexpN.test(input.life_span)) {
     errors.life_span = 'Invalid input'
   }
 
-  
   return errors;
 };
 

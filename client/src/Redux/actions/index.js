@@ -39,13 +39,17 @@ export const filterByTemp = (name) => async (dispatch) => {
   const { data } = await axios.get('http://localhost:3001/dogs');
   const dogSearch = objectToArray(data)
   const newFilter = dogSearch.filter(e => e.temperaments && e.temperaments.includes(name));
-    console.log(newFilter)
   return dispatch({ type: FILTER_BY_TEMP, payload: newFilter });
 };
 
 export const searchByName = (name) => async (dispatch) => {
-  const { data } = await axios.get(`http://localhost:3001/dog?name=${name}`);
-  return dispatch({ type: SEARCH_BY_NAME, payload: data })  
+  try {
+    const { data } = await axios.get(`http://localhost:3001/dog?name=${name}`);
+    return dispatch({ type: SEARCH_BY_NAME, payload: objectToArray(data) })   
+  } catch (error) {
+    console.log(error);
+    return dispatch({ type: SEARCH_BY_NAME, payload: error.message })
+  }
 };
 
 export const alphabeticalOrder = (value) => {
@@ -54,7 +58,7 @@ export const alphabeticalOrder = (value) => {
 
 export const comesFrom = (value) => async (dispatch) => {
   const { data } = await axios.get(`http://localhost:3001/created?from=${value}`);
-  return dispatch({ type: COMES_FROM, payload: data })
+  return dispatch({ type: COMES_FROM, payload: objectToArray(data) })
 };
 
 export const orderByWeight = (value) => {

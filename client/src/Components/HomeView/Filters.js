@@ -38,6 +38,7 @@ const Filters = () => {
     '--maskY' : y
   } */
   const handleClickAlph = (e) => {
+    if(typeof bringAllDogs === 'string') return alert('Invalid action')
     dispatch(alphabeticalOrder(e.target.value));
   }
 
@@ -46,11 +47,13 @@ const Filters = () => {
   }
 
   const handleClickWeights = (e) => {
+    if(typeof bringAllDogs === 'string') return alert('Invalid action')
     dispatch(orderByWeight(e.target.value));
     console.log(bringAllDogs)
   };
 
   const handleClickHeights = (e) => {
+    if(typeof bringAllDogs === 'string') return alert('Invalid action')
     dispatch(orderByHeight(e.target.value));
   }
 

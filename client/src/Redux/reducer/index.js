@@ -50,11 +50,11 @@ const rootReducer =  (state = initialState, action) => {
       }
 
     case ALPHABETICAL_ORDER:
-      const newArrDogs = state.allDogs.map(e => e);
+      /* const newArrDogs = state.allDogs.map(e => e); */
       const alphOrder = action.payload === 'ASC' ? 
-      [...newArrDogs.sort((a, b) => a.name.localeCompare(b.name))]
+      [...state.allDogs.sort((a, b) => a.name.localeCompare(b.name))]
       :
-      [...newArrDogs.sort((a, b) => b.name.localeCompare(a.name))];
+      [...state.allDogs.sort((a, b) => b.name.localeCompare(a.name))];
 
       return {
         ...state,

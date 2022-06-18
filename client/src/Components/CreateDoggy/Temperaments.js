@@ -33,7 +33,7 @@ const Temperaments = ({ input, setImput }) => {
     <div className='checkboxes'>
           <label htmlFor="item1" className='checkboxes_title'>
           {display.length 
-            ? display.map(t => t).join(', ')
+            ? display.map(t => t).join(' , ')
             : 'Select a Temperament'}
           </label>
           <input type='checkbox' name='checkboxes' id="item1"/>
