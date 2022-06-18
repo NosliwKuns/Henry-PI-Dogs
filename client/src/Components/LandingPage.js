@@ -1,25 +1,53 @@
-import React from "react";
+import React, { useState } from 'react';
+import Dog from '../Images/corgi.jpg';
+import DogOne from '../Images/saint.jpg';
+import DogTwo from '../Images/dog_2.jpg';
 import '../scss/LandingPage.scss'
 
 
 const LandingPage = () => {
-  
+
+	let [image, setImage] = useState(Dog);
+
+  setTimeout(() => {
+    if(image === Dog) setImage(DogOne);
+    if(image === DogOne) setImage(DogTwo);
+    if(image === DogTwo) setImage(Dog)
+  }, 4000)
 
   return (
-		<div className='landing-page'>
-			<div className='container'>
-				<svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
-					<defs>
-						{/* <style>.cls-1{fill:#c69c6d;}.cls-2{fill:#bdccd4;}
-						</style> */}
-						</defs>
-						<title>main</title>
-						<path class="cls-1" d="M1920,835.49V1080H0V0H448.41c42.09,26.17,77,62.93,104.12,107.52C601.82,188.67,633.06,283,701.76,351q2,2,4.11,4c63.68,60.74,150.41,89.49,233.33,119,121.1,43.12,243.11,93.27,338.29,179.67,49.49,44.93,90.4,98.54,138.88,144.56,55.93,53.09,126.75,88,204,94.27,38.36,3.13,78.51,1.2,115.59-9.38,42-12,81.22-31.95,123.6-42.63C1879.3,835.56,1899.86,832.68,1920,835.49Z"/>
-						<path class="cls-2" d="M1920,1080H0V0H386c73.62,22.34,131.94,71.62,172.58,138.52C607.82,219.67,639.06,314,707.76,382q2,2,4.11,4c63.68,60.74,150.41,89.49,233.33,119,121.1,43.12,243.11,93.27,338.29,179.67,49.49,44.93,90.4,98.54,138.88,144.56,55.93,53.09,126.75,88,204,94.27,38.36,3.13,78.51,1.2,115.59-9.38,42-12,81.22-31.95,123.6-42.63,17.76-4.48,36.2-7.25,54.41-5.71Z"/>
-				</svg>
-			</div>
-			<div className='dog-1'></div>
+// 		<div className='landing-page'>
+
+// {/* 				<div className='circle-1'></div>
+// 				<div className='circle-2'></div>
+// 				<div className='circle-3'></div>
+// 				<div className='circle-4'></div>
+// 				<div className='circle-5'></div> */}
+// 			<div className='text-landing'>
+// 				<h3>Welcome to</h3>
+// 				<h1 className='elegantshadow'>Doggy Day</h1>
+// 				<h2>Because every day is a doggy day</h2>
+// 				<buton>Enter</buton>
+// 			</div>
+// 			<div className='dog-1'>
+// 				<div>
+// 					<img src={image} alt='nose'/>
+// 				</div>
+// 			</div>
+// 		</div>
+<div className='landing-page'>
+	{/* <div className='grid'> */}
+		<div className='text-landing'>
+			<h3>Welcome to</h3>
+			<h1 className='elegantshadow'>Doggy</h1>
+			<h1 className='elegantshadow'>Day</h1>
+			<h3>Because every day is a doggy day</h3>
+			<button class="custom-btn btn-6"><span>Get started</span></button>
 		</div>
+
+	<img src={image} alt='nose'/>
+	{/* </div> */}
+</div>
 
   )
 };

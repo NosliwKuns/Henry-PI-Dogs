@@ -1,5 +1,170 @@
+// .landing-page {
+//     background: rgb(0, 0, 0);
+// 		display: grid;
+// 		grid-template-columns: 1fr auto;
+// 		position: absolute;
+// 		z-index: 5;
+// 		width: 100%;
+// 		left:0px;
+// 		top: 0;
+// 		right: 0;
+// 		height: 100vh;
+// 		overflow: hidden;
+// 		background-color: #DFE6F6;
+
+// 		.text-landing {
+// 			margin: 10em 0 2em 1em;
+// 			text-align: center;
+		
+// 		}
+
+// 		h1 {
+//       font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+//       font-size: 10em;
+//       text-transform: uppercase;
+//       text-rendering: optimizeLegibility;
+//       margin-bottom: 5em;
+// 			margin: auto;
+      
+//       &.elegantshadow {
+//         color: #131313;
+//         letter-spacing: .15em;
+//         text-shadow: 
+//           1px -1px 0 #686c87, 
+//           -1px 3px 1px #7b82a9, 
+//           -2px 6px 1px #7f85a5, 
+//           -3px 8px 1px #a8b5f6, 
+//       }
+//     }
+
+// 	.dog-1 {
+// 		position: relative;
+// 		display: flex;
+// 		justify-content: flex-end;
+// 		align-items: center;
+// 		/* background: url('../Images/corgi.jpg');
+// 		background-size:cover;
+// 		background-repeat: no-repeat; */
+		
+// 		width: 100%;
+// 		left:0px;
+// 		top: 0;
+// 		right: 0;
+// 		height: 100vh;
+// 		z-index: 2;
+
+// 		div {
+// 			height: 60em;
+// 			width: 60em;
+// 			background-color: #DFE6F6;
+// 			overflow: hidden;
+// 			box-shadow:  9px 9px 0px #A8B5F6,
+//              -9px -9px 0px #fff;
+// 			border-radius: 100% 0 0 0;
+// 			z-index: 5;
+
+// 			img {
+// 				width: 160%;
+// 				animation: opac 2s ease;
+// 				&:hover {
+// 					animation: dogs 2s ease forwards;
+// 				}
+// 			}
+// 		}
+// 	}
+
+// 	svg {
+// 		position: absolute;
+// 		z-index: 3;
+// 		width: 100vw;
+
+// 		.cls-1 {
+// 			fill:#8585FF;
+// 		}
+
+// 		.cls-2 {
+// 			fill: #000000;
+// 		}
+// 	}
+
+// 	.circle-1 {
+// 		position: absolute;
+// 		height: 29em;
+// 		width: 29em;
+// 		bottom: -160px;
+// 		left: -100px;
+// 		border-radius: 100%;
+// 		background: #8585FF;
+// 		z-index: 2;
+// 	}
+
+// 	.circle-2 {
+// 		position: absolute;
+// 		height: 10em;
+// 		width: 10em;
+// 		bottom: 220px;
+// 		left: 80px;
+// 		border-radius: 100%;
+// 		background: #5BE2E9;
+// 		z-index: 2;
+// 	}
+
+// 	.circle-3 {
+// 		position: absolute;
+// 		height: 15em;
+// 		width: 15em;
+// 		left: -20px;
+// 		top: -60px;
+// 		border-radius: 100%;
+// 		background: #5BE2E9;
+// 		z-index: 2;
+// 	}
+
+// 	.circle-4 {
+// 		position: absolute;
+// 		height: 40em;
+// 		width: 40em;
+// 		right: -200px;
+// 		top: 0;
+// 		border-radius: 100%;
+// 		background: #8585FF;
+// 		z-index: 2;
+// 	}
+
+// }
+
+// @keyframes dogs {
+// 	0% {transform: scale(1);}
+// 	100% {transform: scale(1.8);}
+// }
+
+// @keyframes opac {
+// 	0% {opacity: 0;}
+// 	100% {opacity: 1;}
+// }
+
+
+
+/* * {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  background-color: #0c0d20;
+  display: grid;
+  place-content: center;
+} */
+
 .landing-page {
-    background: rgb(0, 0, 0);
+	position: relative;
+		display: grid;
+		grid-template-columns: 1fr auto;
 		position: absolute;
 		z-index: 5;
 		width: 100%;
@@ -8,24 +173,88 @@
 		right: 0;
 		height: 100vh;
 		overflow: hidden;
-}
+		background-color: #DFE6F6;
 
-.dog-1 {
-  position: absolute;
-  background: url('../Images/corgi.jpg');
-  background-size:contain;
-	background-repeat: no-repeat;
-	
-  top: -290px;
-  right: -290px;
-  height: 350%;
-  width: 200vh;
-  z-index: 2;
-}
+		img {
+			mask: url(https://assets.codepen.io/1101822/circles-mask-whole.svg) no-repeat
+				center;
+			position: absolute;
+			right: -23.2em;
+			top: -.1em;
+			max-width: 78%;
+			display: block;
+			/* aspect-ratio: 1; */
+			object-fit: cover;
+		}
 
-svg {
-	position: absolute;
-	z-index: 3;
-/* 	height: 100vh; */
-	width: 100vw;
-}
+// .grid {
+//   display: grid;
+//   grid-template-columns: repeat(auto-fit, minmax(min(100%, 40ch), 1fr));
+//   /* gap: 5vmax; */
+//   /* width: min(80ch, 100%); */
+//   margin-inline: auto;
+// 	align-items: center;
+
+	.text-landing {
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		right: 55em;
+		top: 11em;
+		width: 60em;
+
+		h3 {
+			font-family: var(--font-poppins);
+			color:#4b4e61;
+			letter-spacing: .15em;
+			font-weight: 520;
+		}
+
+		button {
+			margin: 65px 0 0px 0;
+		}
+
+		.custom-btn {
+			width: 160px;
+			height: 45px;
+			color: #4b4e61;
+			border-radius: 5px;
+			padding: 10px 10px;
+			font-family: var(--font-poppins);
+			font-size: 1.1em;
+			font-weight: 550;
+			letter-spacing: .15em;
+			background: transparent;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			position: relative;
+			display: inline-block;
+			 box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+			 7px 7px 20px 0px rgba(0, 0, 0, 0.274),
+			 4px 4px 5px 0px rgba(0, 0, 0, 0.18);
+			outline: none;
+		}
+	}
+			h1 {
+      font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+      font-size: 10em;
+      text-transform: uppercase;
+      /* text-rendering: optimizeLegibility; */
+      /* margin-bottom: 5em; */
+			/* margin: auto; */
+			/* text-align: center; */
+			margin-left: 14px;
+      
+      &.elegantshadow {
+        color: #131313;
+        letter-spacing: .15em;
+        text-shadow: 
+          1px -1px 0 #686c87, 
+          -1px 3px 1px #7b82a9, 
+          -2px 6px 1px #7f85a5, 
+          -3px 8px 1px #a8b5f6, 
+      }
+    }
+
+	}

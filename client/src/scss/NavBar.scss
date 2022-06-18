@@ -14,7 +14,11 @@
   z-index: 999;
   background: var(--darkest);
   padding: 16px 32px;
-  border-bottom: 3px solid var(--primary);
+/*   border-bottom: 3px solid var(--primary); */
+  box-shadow: 1px -1px 0 #686c87, 
+          -1px 3px 1px #7b82a9, 
+          -2px 6px 1px #7f85a5, 
+          -3px 8px 1px #a8b5f6, ;
 }
 
 h1 {

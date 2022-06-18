@@ -41,10 +41,10 @@ const Cards = ({ currentDogs }) => {
           </section>
 
           <section className='card'>
-            <div className='circle c-one'></div>
+{/*             <div className='circle c-one'></div>
             <div className='circle c-two'></div>
             <div className='circle c-three'></div>
-            <div className='circle c-four'></div>
+            <div className='circle c-four'></div> */}
           </section>
         </Link>
       )
