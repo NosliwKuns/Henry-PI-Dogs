@@ -15,7 +15,7 @@ const Home = () => {
   const allDogs = useSelector(state => state.allDogs);
   const [pageNumber, setPageNumber] = useState(1);
   const [dogsPerPage] = useState(8);
-  const totalSize = allDogs.length;
+  const totalSize = typeof allDogs === 'string' ? 1 : allDogs.length;
   const indexOfLastDog = pageNumber * dogsPerPage;
   const indexOfFirstDog = indexOfLastDog - dogsPerPage;
   const currentDogs = allDogs.slice(indexOfFirstDog, indexOfLastDog);
@@ -53,7 +53,8 @@ const Home = () => {
           <Cards 
             currentDogs={currentDogs}
           />
-          <Filters />
+          <Filters
+          setPageNumber={setPageNumber} />
         </div>
         <Pagination 
           pageNumber={pageNumber}

@@ -2,6 +2,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 600px));
   justify-content: center;
+  align-items: center;
+  /* justify-items: center; */
   gap: 4em 3em;
   max-width: 1400px;
 
@@ -167,7 +169,7 @@
       font-size: 25px;
       text-transform: uppercase;
       text-rendering: optimizeLegibility;
-      margin-bottom: 5em;
+      margin-bottom: 1.5em;
       
       &.elegantshadow {
         color: #131313;

@@ -5,7 +5,7 @@ import { filterByTemp } from '../../Redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTemperament, alphabeticalOrder, comesFrom, getAllDogs, orderByWeight, orderByHeight } from '../../Redux/actions/index';
 
-const Filters = () => {
+const Filters = ({ setPageNumber }) => {
   const dispatch = useDispatch();
   const bringAllDogs = useSelector(state => state.allDogs);
   const temps = useSelector(state => state.temperaments)
@@ -44,6 +44,7 @@ const Filters = () => {
 
   const handleClickFrom = (e) => {
     dispatch(comesFrom(e.target.value));
+    setPageNumber(1);
   }
 
   const handleClickWeights = (e) => {
@@ -59,6 +60,7 @@ const Filters = () => {
 
   const handleClick = (e) => {
     dispatch(filterByTemp(e.target.value));
+    setPageNumber(1);
   };
 
   return (
