@@ -85,110 +85,144 @@ const Create = () => {
     </div>
     <form onSubmit={handleSubmit}
           className='form-content'>
-      <div className='form-name'>
-        <h3>Name: </h3>
+    <h3>Create you own Doggy</h3>
+    <div className='form-container'>
+      <div className='form-group'>
         <input
-          className='input'
-          type="text"
-          name="name"
-          placeholder="Husky" 
+          className='form-input'
+          type='text'
+          id='name'
+          name='name'
+          placeholder=' '
           value={input.name}
           onChange={handleChange}  
         />
+        <label 
+          for='name'
+          className='form-label'
+        >Name:
+        </label>
         <div className='error'>
           <p>{errors.name}</p>
         </div>
       </div>
 
-      <div className='form-url'>
-        <h3>Image URL: </h3>
+      <div className='form-group'>
         <input
-          className='input'
+          className='form-input'
           type='text'
+          id='image'
           value={input.image}
           name='image'
-          placeholder="http://doggy.com"
+          placeholder=' '
           onChange={handleChange}
         />
+        <label 
+          for='image'
+          className='form-label'
+        >Image url:
+        </label>
         <div className='error'>
           <p>{errors.image}</p>
         </div>
       </div>
 
-      <div className='form-height'>
-        <h3>Height</h3>
-        <section>
-        <label>Min: </label>
-        <input
-          className='input'
-          type='text'
-          value={input.min_height}
-          name='min_height'
-          placeholder='20'
-          onChange={handleChange}
-        />
-        <label>Max: </label>
-        <input
-          className='input'
-          type='text'
-          value={input.max_height}
-          name='max_height'
-          placeholder='60'
-          onChange={handleChange}
-        />
-        </section>
-
+      <section>
+        <div className='separator'>
+          <div className='form-group'>
+            <input
+              className='form-input'
+              type='text'
+              id='min_height'
+              value={input.min_height}
+              name='min_height'
+              placeholder=' '
+              onChange={handleChange}
+            />
+            <label 
+              for='min_height'
+              className='form-label'
+            >Min Height:
+            </label>
+          </div>
+          <div className='form-group'>
+            <input
+              className='form-input'
+              type='text'
+              id='max_height'
+              value={input.max_height}
+              name='max_height'
+              placeholder=' '
+              onChange={handleChange}
+            />
+            <label 
+              for='max_height'
+              className='form-label'
+            >Max Height:
+            </label>
+          </div>
+        </div>
         <div className='error'>
           <p>{errors.height}</p>
         </div>
+      </section>
 
-        {/* <div>
-          <p>{errors.max_height}</p>
-        </div> */}
-      </div>
+      <section>
+        <div className='separator'>
+          <div className='form-group'>
+            <input
+              className='form-input'
+              type='text'
+              id='min_weight'
+              value={input.min_weight}
+              name='min_weight'
+              placeholder=' '
+              onChange={handleChange}
+            />
+            <label 
+                for='min_weight'
+                className='form-label'
+            >Min Weight:
+            </label>
+          </div>
 
-      <div className='form-weight'>
-        <h3>Weight</h3>
-        <section>
-        <label>Min: </label>
-        <input
-          className='input'
-          type='text'
-          value={input.min_weight}
-          name='min_weight'
-          placeholder="24"
-          onChange={handleChange}
-        />
-        <label>Max: </label>
-        <input
-          className='input'
-          type='text'
-          value={input.max_weight}
-          name='max_weight'
-          placeholder="32"
-          onChange={handleChange}
-        />
-        </section>
-
+          <div className='form-group'>
+            <input
+              className='form-input'
+              type='text'
+              id='max_weight'
+              value={input.max_weight}
+              name='max_weight'
+              placeholder=' '
+              onChange={handleChange}
+            />
+            <label 
+                for='max_weight'
+                className='form-label'
+            >Max Weight:
+            </label>
+          </div>
+        </div>
         <div className='error'>
           <p>{errors.weight}</p>
         </div>
+      </section>
 
-{/*         <div>
-          <p>{errors.max_weight}</p>
-        </div> */}
-
-      </div>
-      <div className='form-life'>
-        <h3>Life Span: </h3>
+      <div className='form-group'>
         <input
-          className='input'
-          type="text"
+          className='form-input'
+          type='text'
+          id='life_span'
           value={input.life_span}
-          name="life_span"
-          placeholder="12 - 15 years"
+          name='life_span'
+          placeholder=' '
           onChange={handleChange}
         />
+        <label 
+          for='life_span'
+          className='form-label'
+        >Life Span:
+        </label>
         <div className='error'>
           <p>{errors.life_span}</p>
         </div>
@@ -200,12 +234,13 @@ const Create = () => {
       <div>
           <p>{errors.temperament}</p>
       </div> 
-      <div>
-        <button>Cancel</button>
+      {/* <div> */}
+        {/* <button>Cancel</button> */}
         <button type="submit">
-          Creat 🐕 
+          Create 🐕 
         </button>
-      </div>
+      {/* </div> */}
+    </div>
     </form>
     </section>
     </div>

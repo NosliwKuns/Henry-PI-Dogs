@@ -30,90 +30,87 @@
     }
 
     .form-content {
-      display: grid;
-      background-image: radial-gradient(#525a61 7.2%, var(--darkest) 0);
+      // display: flex;
+      // flex-direction: column;
+      background-image: radial-gradient(#3c464e 7.2%, var(--darkest) 0);
       background-size: 25px 25px;
-      padding: 2.5em;
+      padding: 2.2em 3em;
       border-radius: 0 1em 1em 0;
-      overflow: hidden;
-
-      .input {
-        float: right;
-        background-color: transparent;
-        color: #fff;                                                                                                                                                                  
-        padding: 6px 10px;
-        border: none;
-        margin-top: 1px;
-        margin-right: 8px;
-        font-family: "Segoe UI Light","Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif;
-        font-size: 16px;
-        font-weight: bold;
-        border-bottom: #fff solid 2px;
-        transition: 0.3s;
-
-      }
-
-      input::placeholder {
-        color: rgba(165, 182, 194, 0.579);
-        /* font-family: var(--font-poppins); */
-        /* letter-spacing: .15em; */
-        /* font-weight: bold;
-        font-size: 1.1em; */
-        margin-left: 10em;
-        padding-left: 20em;
-      }
 
       h3 {
-        margin-bottom: 4px;
+        font-size: 2rem;
+        text-align: center;
       }
 
-      .form-name {
-        display: flex;
-        flex-direction: column;
-      }
+      .form-container {
+        margin-top: 2em;
+        display: grid;
+        gap: .5em;
 
-      .form-url {
-        display: flex;
-        flex-direction: column;
-      }
-
-      .form-height {
-
-        section {
-          display: flex;
-          justify-content: space-between
+        .form-group {
+          position: relative;
+          --color: #a1b8c8;
         }
-      }
 
-      .form-weight {
-
-        section {
-          display: flex;
-          justify-content: space-between
+        .form-input {
+          width: 100%;
+          background: none;
+          color: var(--color);
+          font-size: 1.1rem;
+          padding: .6em .3em;
+          border: none;
+          outline: none;
+          border-bottom: 1px solid var(--color);
+          font-family: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
+          font-weight: 600;
         }
-      }
 
-      .form-life {
-        display: flex;
-        flex-direction: column;
-      }
+        .form-input:focus + .form-label,
+        .form-input:not(:placeholder-shown) + .form-label {
+          transform: translateY(-12px) scale(.8);
+          transform-origin: left top;
+          color: #0f9999;
+        }
 
-      .error {
-        color: rgb(163, 42, 42);
-        height: 1.5em;
-        margin-bottom: 6px;
-      }
+        .form-label {
+          color: var(--color);
+          cursor: pointer;
+          position: absolute;
+          top: 0;
+          left: 5px;
+          font-size: 1.1rem;
+          transform: translateY(10px);
+          transition: transform .5s, color .3s;
+          font-weight: 600;
+          font-family: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
+        }
 
-      button {
-        color: #fff;
-        margin: 0 16px;
-        font-weight: 600;
-        font-size: 1em;
-        transition: 0.4s;
-        padding: 8px 16px;
-        margin-top: 1em;
-        border-radius: 99px;
-        background: #0f9999;
+        .separator {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 2em;
+        }
+
+        .error {
+            color: rgb(163, 42, 42);
+            height: 1.5em;
+            margin-bottom: 6px;
+            transition: opacity .4s ease;
+          }
+
+        button {
+          color: #fff;
+          margin: auto;
+          font-weight: 600;
+          font-size: 1.1em;
+          transition: 0.4s;
+          padding: 8px 16px;
+          margin-top: 1em;
+          font-family: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
+          border-radius: 99px;
+          background: #0f9999;
+          cursor: pointer;
+        }
       }
     }
   }
@@ -132,12 +129,12 @@
 	display: block;
 	padding: 5px;
 	/* background: var(--darkest); */
-	color: aliceblue;
-	font-size: 20px;
+	color: #a1b8c8;
+	font-size: 1.1em;
 	cursor: pointer;
   /* border: 1px solid #fff; */
   /* border-radius: 7px; */
-	border-bottom: 2px solid #fff;
+	border-bottom: 1px solid #a1b8c8;
   
   
 }
