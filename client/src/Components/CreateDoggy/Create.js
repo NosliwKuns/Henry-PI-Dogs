@@ -4,8 +4,8 @@ import { useHistory } from 'react-router-dom';
 import validateForm from './ValidateForm';
 import { postDog, getAllDogs } from '../../Redux/actions';
 import Temperaments from './Temperaments';
-import NavBar from '../NavBar';
 import '../../scss/Create.scss';
+import DogImages from '../DogImages';
 
 const Create = () => {
   const dispatch = useDispatch();
@@ -77,100 +77,119 @@ const Create = () => {
   console.log(errors);
 
   return (
-    <div>
+    <div className='b form-create'>
     <div className={transition}></div>
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Name: </label>
+    <section className='center-container'>
+    <div className='images-container'>
+      <DogImages />
+    </div>
+    <form onSubmit={handleSubmit}
+          className='form-content'>
+      <div className='form-name'>
+        <h3>Name: </h3>
         <input
+          className='input'
           type="text"
           name="name"
           placeholder="Husky" 
           value={input.name}
           onChange={handleChange}  
         />
-        <div>
+        <div className='error'>
           <p>{errors.name}</p>
         </div>
       </div>
-      <div>
-        <label>Image URL: </label>
+
+      <div className='form-url'>
+        <h3>Image URL: </h3>
         <input
+          className='input'
           type='text'
           value={input.image}
           name='image'
           placeholder="http://doggy.com"
           onChange={handleChange}
         />
-        <div>
+        <div className='error'>
           <p>{errors.image}</p>
         </div>
       </div>
 
-      <div>
+      <div className='form-height'>
         <h3>Height</h3>
+        <section>
         <label>Min: </label>
         <input
+          className='input'
           type='text'
           value={input.min_height}
           name='min_height'
           placeholder='20'
           onChange={handleChange}
         />
-        <div>
-          <p>{errors.min_height}</p>
-        </div>
-
         <label>Max: </label>
         <input
+          className='input'
           type='text'
           value={input.max_height}
           name='max_height'
           placeholder='60'
           onChange={handleChange}
         />
-        <div>
-          <p>{errors.max_height}</p>
+        </section>
+
+        <div className='error'>
+          <p>{errors.height}</p>
         </div>
+
+        {/* <div>
+          <p>{errors.max_height}</p>
+        </div> */}
       </div>
 
-      <div>
+      <div className='form-weight'>
         <h3>Weight</h3>
+        <section>
         <label>Min: </label>
         <input
+          className='input'
           type='text'
           value={input.min_weight}
           name='min_weight'
           placeholder="24"
           onChange={handleChange}
         />
-        <div>
-          <p>{errors.min_weight}</p>
-        </div>
-
         <label>Max: </label>
         <input
+          className='input'
           type='text'
           value={input.max_weight}
           name='max_weight'
           placeholder="32"
           onChange={handleChange}
         />
-        <div>
-          <p>{errors.max_weight}</p>
+        </section>
+
+        <div className='error'>
+          <p>{errors.weight}</p>
         </div>
 
+{/*         <div>
+          <p>{errors.max_weight}</p>
+        </div> */}
+
       </div>
-      <div>
-        <label>Life Span: </label>
+      <div className='form-life'>
+        <h3>Life Span: </h3>
         <input
+          className='input'
           type="text"
           value={input.life_span}
           name="life_span"
           placeholder="12 - 15 years"
           onChange={handleChange}
         />
-        <div>
+        <div className='error'>
           <p>{errors.life_span}</p>
         </div>
       </div>
@@ -188,6 +207,7 @@ const Create = () => {
         </button>
       </div>
     </form>
+    </section>
     </div>
   )
 };

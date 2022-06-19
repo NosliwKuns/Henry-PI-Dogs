@@ -1,76 +1,144 @@
-/* .multiselect {
-  width: 300px;
-}
-
-.selectBox {
-  cursor: pointer;
-  
-
-  section {
-    width: 22em;
-    background-color: #fff;
-    border-radius: 10px 10px 0 0;
-    padding: 5px;
-    animation: rotacion 
-  }
-} */
-
-/* .overSelect {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-} */
-
-/* .hide {
-  display: none;
-}
-
-.show {
-  position:absolute;
+.form-create {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin-top: 0.5em;
-  width: 22em;
-  overflow: auto;
-  max-height: 20em;
-  animation: rotacion 1.5s ease;
-  background-color: #fff;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  margin: auto;
+  justify-self: center;
+  color: aliceblue;
 
-  label {
-    display: flex;
-    align-items: center;
-  }
+  .center-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 1em;
+    background: #ffffff;
+    -webkit-box-shadow: -1px 24px 41px -6px rgba(0,0,0,0.27);
+    -moz-box-shadow: -1px 24px 41px -6px rgba(0,0,0,0.27);
+    box-shadow: -1px 24px 41px -6px rgba(0,0,0,0.27);
+    height: 75vh;
+    width: 60vw;
 
-  label:hover {
-    background-color: #1e90ff;
+    .images-container {
+      overflow: hidden;
+      border-radius: 1em 0 0 1em;
+      
+      img {
+        height: 100%;
+        transform: translateX(-200px);
+      }
+    }
+
+    .form-content {
+      display: grid;
+      background-image: radial-gradient(#525a61 7.2%, var(--darkest) 0);
+      background-size: 25px 25px;
+      padding: 2.5em;
+      border-radius: 0 1em 1em 0;
+      overflow: hidden;
+
+      .input {
+        float: right;
+        background-color: transparent;
+        color: #fff;                                                                                                                                                                  
+        padding: 6px 10px;
+        border: none;
+        margin-top: 1px;
+        margin-right: 8px;
+        font-family: "Segoe UI Light","Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        border-bottom: #fff solid 2px;
+        transition: 0.3s;
+
+      }
+
+      input::placeholder {
+        color: rgba(165, 182, 194, 0.579);
+        /* font-family: var(--font-poppins); */
+        /* letter-spacing: .15em; */
+        /* font-weight: bold;
+        font-size: 1.1em; */
+        margin-left: 10em;
+        padding-left: 20em;
+      }
+
+      h3 {
+        margin-bottom: 4px;
+      }
+
+      .form-name {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .form-url {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .form-height {
+
+        section {
+          display: flex;
+          justify-content: space-between
+        }
+      }
+
+      .form-weight {
+
+        section {
+          display: flex;
+          justify-content: space-between
+        }
+      }
+
+      .form-life {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .error {
+        color: rgb(163, 42, 42);
+        height: 1.5em;
+        margin-bottom: 6px;
+      }
+
+      button {
+        color: #fff;
+        margin: 0 16px;
+        font-weight: 600;
+        font-size: 1em;
+        transition: 0.4s;
+        padding: 8px 16px;
+        margin-top: 1em;
+        border-radius: 99px;
+        background: #0f9999;
+      }
+    }
   }
-  
 }
 
-.menu {
-  transition: left 0.7s ease
-}
- */
-/* .checkbox:checked ~ .menu {
-  top: 40%;
-  border-radius: 0 0.5rem 0.5rem 0;
-} */
+//----------select temperaments------------------//
 
-.checkboxes input {
-	display: none;
+.checkboxes {
+
+  input {
+    display: none;
+  }
 }
 
 .checkboxes_title {
 	display: block;
-	padding: 15px;
-	background: #4c241d;
-	color: #fff;
+	padding: 5px;
+	/* background: var(--darkest); */
+	color: aliceblue;
 	font-size: 20px;
 	cursor: pointer;
-  border: 1px solid #fff;
-	border-bottom: 1px solid #fff;
+  /* border: 1px solid #fff; */
+  /* border-radius: 7px; */
+	border-bottom: 2px solid #fff;
+  
   
 }
 
@@ -81,33 +149,35 @@
   width: 100px;
 } */
 .checkboxes_title:hover {
-	background: #1c719c;
-  color: #000000;
+  /* color: #000000; */
   border-bottom: 1px solid #fff;
+  
 }
 
 .checkbox_content {
+  position: absolute;
   display: grid;
   grid-template-columns: 1fr 1fr;
-	height: 0;
+	height: 0px;
   width: 100%;
   border: none;
   font-size: 22px;
 	overflow: auto;
 	transition: all 0.5s ease;
+  z-index: 2;
 
   label {
-    background-color: rgb(65, 183, 187);
+    background-color: var(--darkest);
     display: grid;
     grid-template-columns: 4fr 1fr;
-    border: 1px solid #fff;
+    border: 1px solid rgb(75, 75, 75);
     cursor: pointer;
     padding: 0.5rem;
     width: 100%;
   }
 
   span,img {
-    border: solid 0.1em #fff;
+    border: solid 1px #fff;
     animation: rotacion 1.5s ease;
     height: 30px;
     width: 30px;
@@ -116,7 +186,8 @@
 }
 
 .checkboxes input:checked ~ .checkbox_content{
-	height: 350px;
+  transform: translateY(-392px);
+	height: 350px;  
   background-color: #ffffff;
 }
 

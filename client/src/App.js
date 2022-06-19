@@ -12,12 +12,12 @@ function App() {
   return (
     <BrowserRouter>
       <Route exact path='/' component={LandingPage} />
-      <div className='app'>
-      {/* <NavBar /> */}
+      {/* <div className='app'> */}
+      <NavBar />
       <Route path='/home' component={Home} />
       <Route path='/create' component={Create} />
       <Route path='/detail/:id' component={CardDetail} />
-      </div>
+     {/*  </div> */}
     </BrowserRouter>
   );
 }

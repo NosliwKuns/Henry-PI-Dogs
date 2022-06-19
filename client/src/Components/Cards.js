@@ -50,7 +50,7 @@ const Cards = ({ currentDogs }) => {
       )
     });
   } else {
-    display = 'Dog breed not found';
+    display = <div>Dog breed not found</div>;
   }
   return (
     <div className='cards-container'>

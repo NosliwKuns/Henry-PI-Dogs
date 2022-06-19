@@ -14,13 +14,18 @@ $neo-thickness : number-size/4;
   grid-area: search-bar;
 }
 
+.b {
+  grid-area: b;
+}
+
 .main-content {
+  position: relative;
   display: grid;
-  grid-template-columns: auto 1fr;
-  grid-area: main;
+  grid-template-columns: 4fr 1fr;
+  /* grid-area: main; */
   gap: 0 2em;
   max-width: 1600px;
-  margin-top: 1.5em;
+  margin: auto;
 }
 .pagination {
   grid-area: pagination;
@@ -33,7 +38,7 @@ $neo-thickness : number-size/4;
   grid-template-rows: auto auto auto;
   grid-template-areas: 
     'search-bar search-bar search-bar'
-    '. main .'
+    '. b .'
     '. pagination .'
     ;
   gap: 1em;

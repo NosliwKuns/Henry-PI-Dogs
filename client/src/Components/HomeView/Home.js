@@ -49,7 +49,7 @@ const Home = () => {
         {/* <div className={transition ? 'y' : 'x'}></div>
         <div className={transition ? 'y' : 'p'}></div> */}
         <SearchBar />
-        <div className='main-content'>
+        <div className='b main-content'>
           <Cards 
             currentDogs={currentDogs}
           />
