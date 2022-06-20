@@ -1,0 +1,101 @@
+.detail-container{
+  display: flex;
+  height: 100vh;
+  color: aliceblue;
+
+  section {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    margin: auto;
+
+    .left {
+      display: grid;
+      grid-template-rows: 1fr 4fr 1fr;
+      grid-template-areas: 
+        '.'
+      'left-c'
+        '.'
+      ;
+
+      .left-content {
+        background-image: radial-gradient(#4d5a64 7.2%, var(--darkest) 0);
+        background-size: 25px 25px;
+        grid-area: left-c;
+        border-radius: 1em 0 0 1em;
+        padding: 2em;
+        max-width: 23em;
+      }
+    }
+
+    .center {
+      h1{
+        color: var(--darkest);
+        font-size: 3em;
+        font-weight: bolder;
+      }
+
+      .text-right {
+        text-align: right;
+      }
+
+      .square-up {
+        position: absolute;
+        height: 12em;
+        width: 14em;
+        /* border: #0f9999 solid 1em; */
+        background: #11adad;
+        border-radius: 1em;
+        top: -5px;
+        right: -60px;
+        z-index: -1;
+      }
+
+      .square-down {
+        position: absolute;
+        height: 10em;
+        width: 20em;
+        border: #11adad solid .8em;
+        border-radius: 1.5em;
+        left: -55px;
+        bottom: 0px;
+        z-index: -1;
+      }
+
+      .img-center {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 34em;
+        width: 34em;
+        overflow: hidden;
+        border: rgba(255, 255, 255, 0.418) .35em solid;
+        border-radius: 1em;
+
+      
+        img {
+          height: 34em;
+        }
+      }
+    }
+
+    .right {
+      display: grid;
+      grid-template-rows: 1fr 4fr 1fr;
+      grid-template-areas: 
+        '.'
+      'right-c'
+        '.'
+      ;
+
+      .right-content {
+        background-image: radial-gradient(#4d5a64 7.2%, var(--darkest) 0);
+        background-size: 25px 25px;
+        grid-area: right-c;
+        border-radius: 0 1em 1em 0;
+        padding: 2em;
+        max-width: 23em;
+      }
+    }
+  }
+}

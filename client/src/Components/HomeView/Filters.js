@@ -103,7 +103,7 @@ const Filters = ({ setPageNumber }) => {
    </div> 
 </div>
 
-<div class="accordion"> 
+<div class='accordion sec'> 
   
   <a href="#" class="accordion-toggle">Origin of breeds</a>
   <div class="accordion-content">

@@ -1,27 +1,25 @@
 .filter {
-  background: #dfe6f6;
-  box-shadow:  6px 6px 0px #a8b5f6,
-             -6px -6px 0px #fbfbfe;
-}
+
+
 
 .btn-container{
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
   gap: 1em;
-  background: #dfe6f6;
+  background: var(--darkest);
   min-height: 10em;
   padding: 1em 1em 1em 1em;
+  border-radius: 1.5em 1.5em 0 0;
 
   button {
     font-size: 1em;
-    background: rgba(132, 238, 254, 0.54);
-    background: linear-gradient(180deg, rgba(132, 238, 254, 0.746) 0%, rgba(96, 39, 240, 0.803) 64%);
+    background: #0f9999;
     border-radius: 3em;
     font-family: var(--font-poppins);
-    color: #dfe6f6;
+    color: #fff;
     height: 2em;
-    width: 60%;
+    width: 80%;
 
   }
   
@@ -32,6 +30,7 @@
   text-align: left;
   width: 100%; 
   min-width: 300px;
+  background: var(--darkest);
   
   &:hover{
   
@@ -39,11 +38,8 @@
     .accordion-content{
       // If use the "height: auto", the effect not works. Is necessary some value for the CSS create a CSS animate, and we can use "max-height" with a great value for emulate this effect.
       display: grid;
-      max-height: 450px;
+      max-height: 360px;
       align-items: center;
-      box-shadow:  6px 6px 12px #c3bbe5,
-             -6px -6px 12px #fbfbfe;
-      background: #dfe6f6;
 			overflow: auto;
 
 			.included {
@@ -52,8 +48,7 @@
         padding-left: 1em;  
 
 				&:hover {
-					background: rgb(132,237,254);
-          background: linear-gradient(180deg, rgba(132, 238, 254, 0.746) 0%, rgba(97,39,240,1) 64%);
+					background: #0f9999;
           color:#fff;
 					/* transition: 1s ease */
 				}
@@ -64,18 +59,21 @@
   }
 }
 
+.sec {
+  border-radius: 0 0 1.5em  1.5em;
+}
+
 .accordion-content{
   -webkit-transition: max-height 1s; 
   -moz-transition: max-height 1s; 
   -ms-transition: max-height 1s; 
   -o-transition: max-height 1s; 
   transition: max-height 1s;  
-  background: #ffffff;
+  background: var(--darkest);
   overflow: hidden;
   // "height: 0" not work with css transitions
   max-height: 0;
 }
-
 
 .accordion-inner{
   padding: 0 15px;
@@ -96,7 +94,7 @@
              -6px -6px 12px #fbfbfe;
   background: #dfe6f6; */
   border-radius: 3px;
-  color: #0000EE;
+  color: #a1b8c8;
   display: block;
   font-size: 30px;
   margin: 0 0 0;
@@ -105,7 +103,8 @@
   text-decoration: none;
   
   &:hover{
-    background: darken(#ffffff, 15%);
+    background: #0f9999;
+    color: var(--darkest);
   }
   
 }
@@ -143,6 +142,8 @@
 	width: 300px;
 	background-color: rgb(34, 115, 128);
 	animation: melt-leave 3s ease-in-out ;
+}
+
 }
 
 /* @keyframes melt-enter {
