@@ -1,15 +1,12 @@
 .cards-container {
+  position: relative;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 380px));
+  grid-template-columns: repeat(auto-fill, minmax(100px, 320px));
   justify-content: center;
   align-items: center;
   /* justify-items: center; */
-  gap: 4em 3em;
+  gap: 4em 4.5em;
   max-width: 1400px;
-  /* position: relative;
-  display: flex;
-  flex-wrap: wrap; */
-
 
   .ball {
     position: absolute;
@@ -34,9 +31,10 @@
   .huesito {
     position: absolute;
     z-index: 4;
-    width: 22%;
-    left: 38px;
-    top: 170px;
+    width: 40%;
+    left: -12px;
+    top: 4%;
+    transform: rotate(-45deg) ;
 
     .cls-1{
       height: 100px;
@@ -54,37 +52,141 @@
     }
 
   }
-  
-  
-  .over-content{
+ 
+  .over-content {
     position: relative;
     display: grid;
-    height: 100%;
-    
-    .image-content {
+    grid-template-rows: 1.2fr 2fr;
+    min-width: 2em;
+    height: 460px;
+    border-radius: 1.5em;
+    color: rgb(157, 165, 195);
+    overflow: hidden;
+
+    &::before {
       position: absolute;
-      height: 11em;
-      width: 11em;
-      border-radius: 1em;
-      overflow: hidden;
-      display: flex;
-      left: 15px;
-      top: 20px;
-      justify-content: center;
-      align-items: center;
-      border-radius: 50%;
-      border: #fff .35em solid;
-      box-shadow: 6px 6px 0px #73738f81;
-      animation: ball 3s infinite ease;
+      transition: all 5s ease;
+      position: absolute;
+      top: 15%;
+      left: 0;
+      right: 0;
+      bottom: 40%;
+      opacity: 0;
+      content: '';
+      background: #0f9999;
       z-index: 2;
 
+    }
+
+    &:hover::before {
+      transition: all 0.5s ease;
+      top: 20%;
+      bottom: 50%;
+      opacity: 1;
+      z-index: 3;
+    }
+    
+    .up-side {
+      background: #a1b8c8;
+      border-radius: 1.5em 1.5em 0 0;
+      overflow: hidden;
+
       img {
-        height: 9em;
+        width: 250%;
+        transform: translateX(-80px);
+        filter: blur(3px);
+      }
+    }
+
+    .down-side {
+      border-radius: 0 0 1.5em 1.5em;
+      text-align: center;
+      padding: 0 .5em 1em .5em;
+      background-size: 25px 25px;
+      background-image: radial-gradient(#4d5a64 7.2%, var(--darkest) 0);
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
+      font-weight: 500;
+      font-size: 1.1rem;
+
+      h1 {
+        font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+        font-size: 25px;
+        text-transform: uppercase;
+        text-rendering: optimizeLegibility;
+        line-height: 1.2em;
+        margin-top: 4.8em;
+        
+        &.elegantshadow {
+          color: #a1b8c8;
+          letter-spacing: .15em;
+        }
+      }
+
+      p {
+        margin-top: .5em;
+      }
+
+      h3 {
+        margin-top: .5em;
+      }
+    }
+
+    .like {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 4.5em;
+      width: 4.5em;
+      background: #0f9999;
+      border-radius: 100% 0 0 0;
+      bottom: 0;
+      right: 0;
+      z-index: 6;
+      transition: all 1s ease;
+
+      img {
+        height: 2em;
+        margin: 0.5em 0 0 0.5em;
+        transition: all 1s ease;
+        
+      }
+
+      &:hover {
+        height: 6em;
+        width: 6em;
+
+       img {
+        height: 4em;
+        margin: 1em 0 0 1em;
+       }
+      }
+    }
+
+    .image-content {
+      position: absolute;
+      height: 15em;
+      width: 15em;
+      overflow: hidden;
+      display: flex;
+      left: 12%;
+      top: 9%;
+      justify-content: center;
+      align-items: center;
+      border-radius: 1em;
+      border: rgba(255, 255, 255, 0.418) .35em solid;
+      animation: ball 3s infinite ease;
+      z-index: 3;
+
+      .img-front {
+        height: 15em;
+        position: absolute;
+        z-index: 4;
       }
     }
   }
 
-  .blob {
+/*   .blob {
     position:absolute;
     width: 13em;
     height: 11em;
@@ -99,15 +201,15 @@
   
   .one {
     
-    background: #8585FF;
+    background: #929faeb1;
     animation: blob_1 3.3s infinite ease-in-out;
   }
 
   .two {
     top: 35px;
     animation: blob_1 5.3s infinite ease-in-out;
-    background: #5BE2E9
-  }
+    background: #929faeb1
+  } */
  
 
     .card {
@@ -160,32 +262,32 @@
       }
     }
 
-  .text {
-    position: absolute;
-    left: 13em;
-    top: 2em;
-    z-index: 2;
-    max-width: 20em;
-    text-align: center;
+  // .text {
+  //   /* position: absolute;
+  //   left: 13em;
+  //   top: 2em;
+  //   z-index: 2;
+  //   max-width: 20em; */
+  //   text-align: center;
 
-    h1 {
-      font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
-      font-size: 25px;
-      text-transform: uppercase;
-      text-rendering: optimizeLegibility;
-      margin-bottom: 1.5em;
+  //   h1 {
+  //     font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  //     font-size: 25px;
+  //     text-transform: uppercase;
+  //     text-rendering: optimizeLegibility;
+  //     margin-bottom: 1.5em;
       
-      &.elegantshadow {
-        color: #131313;
-        letter-spacing: .15em;
-        text-shadow: 
-          1px -1px 0 #686c87, 
-          -1px 2px 1px #7b82a9, 
-          -2px 4px 1px #7f85a5, 
-          -3px 6px 1px #a8b5f6, 
-      }
-    }
-  }
+  //     &.elegantshadow {
+  //       color: #131313;
+  //       letter-spacing: .15em;
+  //       text-shadow: 
+  //         1px -1px 0 #686c87, 
+  //         -1px 2px 1px #7b82a9, 
+  //         -2px 4px 1px #7f85a5, 
+  //         -3px 6px 1px #a8b5f6, 
+  //     }
+  //   }
+  // }
 }
 
 @keyframes zoom-in {
@@ -212,7 +314,7 @@
     transform:scale(1);
 
   } 50% {
-    transform:scale(1.1)
+    transform:scale(1.05)
   }
 }
 

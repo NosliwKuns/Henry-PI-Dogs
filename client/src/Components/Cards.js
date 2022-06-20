@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Paw from '../Images/paw.png'
 import '../scss/HomeView/Cards.scss';
 
 const Cards = ({ currentDogs }) => {
   
-
   let display;
 
   if( currentDogs.length && Array.isArray(currentDogs) ) {
@@ -18,11 +18,32 @@ const Cards = ({ currentDogs }) => {
       /* if(temperaments && typeof temperaments[0] === 'object') temps = temperaments.map(e => e.name).join(', ')
       else temps = temperaments?.join(', ') */
       return (
-        <Link 
-          to={`/detail/${id}`} 
+        <Link to={`/detail/${id}`}> 
+
+        <div 
+          className='over-content'
           key={id}
-          className='over-content' 
-        > 
+          >
+          <section className='up-side'>
+          </section>
+
+          <div className='like'>
+            <img src={Paw} alt='paw' />
+          </div>
+
+          <section className='down-side'>
+            <h1 className='elegantshadow'>{name}</h1>
+            <p>{temperaments?.join(' , ')}</p>
+            <h3>{dua}</h3>
+          </section>
+
+          <section className='image-content'>
+            <img className='img-front' src={image} alt={name}/>
+            <img className='img-back' src={image} alt={name}/>
+          </section>
+
+        </div>
+
           <svg className='huesito' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 146.34 67.9">
             <defs>
             </defs>
@@ -33,19 +54,7 @@ const Cards = ({ currentDogs }) => {
               </g>
             </g>
           </svg>
-          <section className='image-content'>
-            <img src={image} alt={name}/>
-          </section>
-            <div className='blob one'></div>
-            <div className='blob two'></div>
 
-          <section className='text'>
-            <h1 className='elegantshadow'>{name}</h1>
-            <div>{temperaments?.join(' , ')}</div>
-            <h3>{dua}</h3>
-            </section>
-            <section className='card'>
-          </section>
         </Link>
       )
     });
