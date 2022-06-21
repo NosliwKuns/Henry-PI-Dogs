@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getAllDogs, searchByName, getTemperament } from '../../Redux/actions';
+import { getAllDogs, getTemperament } from '../../Redux/actions';
 import Cards from '../Cards';
 import SearchBar from '../SearchBar';
 import Loading from '../Loading';
@@ -11,7 +11,7 @@ import Pagination from './Pagination';
 const Home = () => {
 
   const dispatch = useDispatch();
-  const [transition, setTransition] = useState(false);
+  /* const [transition, setTransition] = useState(false); */
   const allDogs = useSelector(state => state.allDogs);
   const [pageNumber, setPageNumber] = useState(1);
   const [dogsPerPage] = useState(8);
@@ -29,7 +29,7 @@ const Home = () => {
     dispatch(getAllDogs())
     dispatch(getTemperament())  
    /*  }, 1500); */
-  }, [dispatch, transition]);
+  }, [dispatch]);
   
 
 
@@ -46,8 +46,6 @@ const Home = () => {
     display = 
       (
         <> 
-        {/* <div className={transition ? 'y' : 'x'}></div>
-        <div className={transition ? 'y' : 'p'}></div> */}
         <SearchBar />
         <div className='b main-content'>
           <Cards 

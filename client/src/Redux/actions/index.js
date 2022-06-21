@@ -8,6 +8,7 @@ export const ALPHABETICAL_ORDER = 'ALPHABETICAL_ORDER';
 export const COMES_FROM = 'COMES_FROM';
 export const ORDER_BY_WEIGHT = 'ORDER_BY_WEIGHT';
 export const ORDER_BY_HEIGHT = 'ORDER_BY_HEIGHT';
+export const CLEAN_DETAIL = 'CLEAN_DETAIL';
 
 const objectToArray = (array) =>{
   const dogSearch = array.map( e => e);
@@ -39,7 +40,7 @@ export const filterByTemp = (name) => async (dispatch) => {
   const { data } = await axios.get('http://localhost:3001/dogs');
   const dogSearch = objectToArray(data)
   const newFilter = dogSearch.filter(e => e.temperaments && e.temperaments.includes(name));
-  return dispatch({ type: FILTER_BY_TEMP, payload: newFilter });
+  return dispatch({ type: FILTER_BY_TEMP, payload: name === 'All' ? data : newFilter });
 };
 
 export const searchByName = (name) => async (dispatch) => {
@@ -57,8 +58,12 @@ export const alphabeticalOrder = (value) => {
 }
 
 export const comesFrom = (value) => async (dispatch) => {
-  const { data } = await axios.get(`http://localhost:3001/created?from=${value}`);
-  return dispatch({ type: COMES_FROM, payload: objectToArray(data) })
+  try {
+    const { data } = await axios.get(`http://localhost:3001/created?from=${value}`);
+    return dispatch({ type: COMES_FROM, payload: objectToArray(data) }) 
+  } catch (error) {
+    return dispatch({ type: COMES_FROM, payload: error.message })
+  }
 };
 
 export const orderByWeight = (value) => {
@@ -69,9 +74,6 @@ export const orderByHeight = (value) => {
   return { type: ORDER_BY_HEIGHT, payload: value}
 };
 
-
-
-/* export const getAllDogs = () => async (dispatch) => {
-  const { data } = await axios.get('http://localhost:3001/dogs');
-  return dispatch({ type: GET_ALL_DOGS, payload: objectToArray(data) });
-}; */
+export const cleanDetail = () => {
+  return { type: CLEAN_DETAIL, payload: [] }
+};

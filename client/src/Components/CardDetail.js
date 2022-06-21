@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getDetail } from './../Redux/actions/index';
+import { getDetail, cleanDetail } from './../Redux/actions/index';
+import Loading from './Loading';
 import '../scss/Details.scss';
 
 const CardDetail = () => {
@@ -14,7 +15,9 @@ const CardDetail = () => {
   }, [transition])
   
   useEffect(() => {
-    dispatch(getDetail(id))
+    dispatch(cleanDetail());
+    dispatch(getDetail(id));
+
   },[dispatch, id] )
   let { name, 
         image, 
@@ -27,13 +30,18 @@ const CardDetail = () => {
   } = useSelector(state => state.detail);
   let temps;
   if(temperaments && typeof temperaments[0] === 'object') {
-  temps = temperaments.map(e => e.name).join(' , ');
+  temps = temperaments.map(e => e.name).join(', ');
   } else {
-    temps = temperaments?.join(' , ');
+    temps = temperaments?.join(', ');
   }
-    
-  return (
-    <div className='detail-container'>
+
+  let display;
+
+  if(!image) {
+    display = <Loading />;
+  } else {
+    display = (
+      <div className='detail-container'>
       <div className={transition}></div>
       <section>
         <div className='left'>
@@ -42,32 +50,39 @@ const CardDetail = () => {
               {name}
             </h1>
             <h3>Temperaments:</h3>
-            <p>{temps}</p>
+            <p>Their temperaments are {temps}.</p>
           </div>
         </div>
-        <div className='center'>
-          <h1>Good Boy</h1>
+        <div className='center '>
+          <h1>Friends</h1>
           <span className='square-up'></span>
           <span className='square-down'></span>
           <div className='img-center'>
             <img src={image} alt={name} />
           </div>
-          <h1 className='text-right'>Good Boy</h1>
+          <h1 className='text-right'>Furever</h1>
         </div>
         <div className='right'>
           <div className='right-content'>
-            <h3>Height:</h3>
-            <p>Min: {min_height ? min_height : 'Unknown'}</p>
-            <p>Max: {max_height ? max_height : 'Unknown'}</p>
-            <h3>Weight</h3>
-            <p>Min: {min_weight ? min_weight : 'Unknown'}</p>
-            <p>Max: {max_weight ? max_weight : 'Unknown'}</p>
             <h3>Life Span: </h3>
-            <p>{life_span}</p>
+            <p>Their life span is {life_span}.</p>
+            <h3>Height: </h3>
+            <p>This breed can measure between {min_height ? `${min_height} ` : 'Unknown '} 
+                and {max_height ? max_height : 'Unknown'} centimeters.
+            </p>
+            <h3>Weight: </h3>
+            <span>This breed can weigh between {min_weight ? `${min_weight} ` : 'Unknown '}
+                and {max_weight ? max_weight : 'Unknown'} kilograms.
+            </span>
           </div>
         </div>
       </section>
     </div>
+    )
+  }
+    
+  return (
+    <>{display}</>
   )
 };
 

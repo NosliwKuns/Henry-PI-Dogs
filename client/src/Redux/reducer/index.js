@@ -7,7 +7,8 @@ import {
   ALPHABETICAL_ORDER ,
   COMES_FROM,
   ORDER_BY_WEIGHT,
-  ORDER_BY_HEIGHT
+  ORDER_BY_HEIGHT,
+  CLEAN_DETAIL
 } from '../actions';
 
 
@@ -105,6 +106,11 @@ const rootReducer =  (state = initialState, action) => {
       return {
         ...state,
         allDogs: orderByHeight
+      }
+    case CLEAN_DETAIL:
+      return {
+        ...state,
+        detail: action.payload
       }
 
 

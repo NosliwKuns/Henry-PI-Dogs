@@ -57,16 +57,16 @@ function Pagination({ pageNumber, setPageNumber, totalSize, dogsPerPage }) {
     <div className='pagination'>
       <div className='p-container'>
       <button onClick={prev} 
-          className={pageNumber === 1 ? 'btn disabled' : 'btn-p'}>Prev</button>
+          className={pageNumber === 1 ? 'btn disabled' : 'btn'}>Prev</button>
         {arrCurrBtns.map(page => {
           return (
             <button 
               onClick={() => setPageNumber(page)}
-              className={pageNumber === page ? 'btn active' : 'btn-p'}>{page}</button>
+              className={pageNumber === page ? 'btn active' : 'btn'}>{page}</button>
           )
         })}
       <button onClick={next} 
-          className={pageNumber === pages ? 'btn disabled' : 'btn-p'}>Next</button>
+          className={pageNumber === pages ? 'btn disabled' : 'btn'}>Next</button>
       </div>
     </div>
   )

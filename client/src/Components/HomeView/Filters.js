@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react';
+import React from 'react';
 import '../../scss/HomeView/Filters.scss';
 import '../../scss/HomeView/DogHome.scss';
 import { filterByTemp } from '../../Redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
-import { getTemperament, alphabeticalOrder, comesFrom, getAllDogs, orderByWeight, orderByHeight } from '../../Redux/actions/index';
+import { alphabeticalOrder, comesFrom, orderByWeight, orderByHeight } from '../../Redux/actions/index';
 
 const Filters = ({ setPageNumber }) => {
   const dispatch = useDispatch();
@@ -69,50 +69,67 @@ const Filters = ({ setPageNumber }) => {
       <section className='btn-container'>
         <button value='ASC' onClick={handleClickAlph}> A-Z </button>
         <button value='DESC' onClick={handleClickAlph}> Z-A </button>
-        <button value='api' onClick={handleClickFrom}> Api </button>
-        <button value='dataBase' onClick={handleClickFrom}> DataBase </button>
         <button value='ASC' onClick={handleClickWeights}> Min Weight </button>
         <button value='DESC' onClick={handleClickWeights}> Max Weight </button>
         <button value='ASC' onClick={handleClickHeights}> Min height </button>
         <button value='DESC' onClick={handleClickHeights}> Max height </button>
+        <button value='api' onClick={handleClickFrom}> Api </button>
+        <button value='dataBase' onClick={handleClickFrom}> DataBase </button>
       </section>
 
-<div class="accordion"> 
-  
-  <a href="#" class="accordion-toggle">Filter by temperament:</a>
-  <div class="accordion-content"> 
-    <div class="accordion-inner"> 
-      {
-        temps.map(e => 
-          <label
-            key={`TEM_${e.id}`} 
-            className='included'
-            htmlFor={e.id}
-          >
-          <input 
-            type='checkbox'
-            value={e.name}
-            id={e.id}
-            onClick={handleClick}
-          /> 
-            {e.name}
-          </label>
-        )
-      }
-    </div> 
-   </div> 
-</div>
+      <div class='accordion'> 
+        
+        <span class='accordion-toggle'>Filter by temperament:</span>
+        <div class='accordion-content'> 
+          <div class='accordion-inner'> 
+            <label
+              key={`TEM_0`} 
+              className='included'
+              htmlFor={0}
+            >
+            <input 
+              type='checkbox'
+              value={'All'}
+              id={0}
+              onClick={handleClick}
+            /> 
+              {'All Temperaments'}
+            </label>
 
-<div class='accordion sec'> 
-  
-  <a href="#" class="accordion-toggle">Origin of breeds</a>
-  <div class="accordion-content">
-    <div class="accordion-inner"> 
-      <p>For animate the "height" of element with CSS Transitions you need use "max-height".</p>
-      <p>If use the "height: auto", the effect not works. Is necessary some value for the CSS create a CSS animate, and you can use "max-height" with a great value for emulate this effect.</p> 
-    </div>
-  </div>
-</div>
+            {
+              temps.map(e => 
+                <label
+                  key={`TEM_${e.id}`} 
+                  className='included'
+                  htmlFor={e.id}
+                >
+                <input 
+                  type='checkbox'
+                  value={e.name}
+                  id={e.id}
+                  onClick={handleClick}
+                /> 
+                  {e.name}
+                </label>
+              )
+            }
+          </div> 
+        </div> 
+      </div>
+
+      <div class='accordion sec'> 
+        
+        <span class='accordion-toggle'>Origin of breeds</span>
+        <div class='accordion-content'>
+          <div class='accordion-inner'> 
+            <p>A dog breed is a particular strain of dog that was purposefully bred by humans to perform specific tasks, such as herding, hunting, and guarding. Dogs are the most variable mammal on earth, with artificial selection producing around 450 globally recognized breeds.</p>
+            <p>Dogs are the most variable mammal on earth, with artificial selection producing around 450 globally recognized breeds.</p> 
+            <p>These breeds possess distinct traits related to morphology, which include body size, skull shape, tail phenotype, fur type, body shape, and coat colour.</p>
+            <p>Their behavioural traits include guarding, herding, and hunting, and personality traits such as hypersocial behavior, boldness, and aggression.</p>
+            <p>Most breeds were derived from small numbers of founders within the last 200 years. As a result, today dogs are the most abundant carnivore species and are dispersed around the world</p>
+          </div>
+        </div>
+      </div>
 
       <div class='melt-leave-active'>
       <div class='melt-enter-active'></div>
