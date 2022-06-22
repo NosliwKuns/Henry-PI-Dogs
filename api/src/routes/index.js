@@ -16,15 +16,10 @@ router.get('/dogs/:idBreed', getDetailById);
 
 router.post('/dogs', newDogs);
 
-/* router.post('/dogs', b); */
-
 router.get('/temps', Temperaments);
 
-router.get('/created', comesFrom)
-/* 
-router.get('/temps', c);
+router.get('/created', comesFrom);
 
-router.get('/temp/', t); */
 
 
 module.exports = router;

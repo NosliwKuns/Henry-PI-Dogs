@@ -13,9 +13,9 @@ const validateForm = (input) => {
   }
 
   //-------------------------image-----------------------//
-  /* if (!input.image) {
+  if (!input.image) {
     errors.image = 'It cannot be empty'
-  } else  */if (input.image.length && !regExp.test(input.image)) {
+  } else if (input.image.length && !regExp.test(input.image)) {
     errors.image = 'Url invalid'
   } 
 
