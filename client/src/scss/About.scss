@@ -1,0 +1,31 @@
+.contact {
+  display: flex;
+  height: 100vh;
+  color: aliceblue;
+  
+
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 39em;
+    width: 64em;
+    margin: auto;
+    border-radius: 1em;
+    background-image: radial-gradient(#3c464e 7.2%, var(--darkest) 0);
+    background-size: 25px 25px;
+    padding: 2.2em 3em;
+  }
+  
+  h3 {
+    margin-bottom: 2em;
+    color: #a1b8c8;
+  }
+
+  div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3em;
+  }
+}

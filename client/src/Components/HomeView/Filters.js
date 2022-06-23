@@ -40,6 +40,7 @@ const Filters = ({ setPageNumber }) => {
   const handleClickAlph = (e) => {
     if(typeof bringAllDogs === 'string') return alert('Invalid action')
     dispatch(alphabeticalOrder(e.target.value));
+    setPageNumber(1);
   }
 
   const handleClickFrom = (e) => {
@@ -50,12 +51,13 @@ const Filters = ({ setPageNumber }) => {
   const handleClickWeights = (e) => {
     if(typeof bringAllDogs === 'string') return alert('Invalid action')
     dispatch(orderByWeight(e.target.value));
-    console.log(bringAllDogs)
+    setPageNumber(1);
   };
 
   const handleClickHeights = (e) => {
     if(typeof bringAllDogs === 'string') return alert('Invalid action')
     dispatch(orderByHeight(e.target.value));
+    setPageNumber(1);
   }
 
   const handleClick = (e) => {
@@ -74,7 +76,7 @@ const Filters = ({ setPageNumber }) => {
         <button value='ASC' onClick={handleClickHeights}> Min height </button>
         <button value='DESC' onClick={handleClickHeights}> Max height </button>
         <button value='api' onClick={handleClickFrom}> Api </button>
-        <button value='dataBase' onClick={handleClickFrom}> DataBase </button>
+        <button value='dataBase' onClick={handleClickFrom}> Created </button>
       </section>
 
       <div class='accordion'> 

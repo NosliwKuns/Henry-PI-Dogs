@@ -31,9 +31,9 @@ const NavBar = () => {
             onClick={() =>  setActive('create')}>
               Create
           </Link>
-          <Link to='/favs'
-            className={active === 'favs' ? 'is-active' : ''} 
-            onClick={() =>  setActive('favs')}
+          <Link to='/about'
+            className={active === 'about' ? 'is-active' : ''} 
+            onClick={() =>  setActive('about')}
             >Contact</Link>
         </div>
         <button 

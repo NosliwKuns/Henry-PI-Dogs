@@ -94,14 +94,16 @@ const rootReducer =  (state = initialState, action) => {
       const orderByHeight = action.payload === 'ASC' ?
       [...state.allDogs].sort((a, b) => {
           /* if(a.min_height === null) { return 0 } */
+          if(!a.min_height) { a.min_height = a.max_height}
           if (a.min_height < b.min_height) { return -1 }
           if (b.min_height < a.min_height) { return 1 }
           return 0;
       }) :
       [...state.allDogs].sort((a, b) => {
           /* if(a.max_weight === null) { return 0 } */
-          if (a.min_height < b.min_height) { return 1; }
-          if (b.min_height < a.min_height) { return -1; }
+          if(!a.max_height) { a.max_height = a.min_height}
+          if (a.max_height < b.max_height) { return 1; }
+          if (b.max_height < a.max_height) { return -1; }
           return 0;
       })
       return {

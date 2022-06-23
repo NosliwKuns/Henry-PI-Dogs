@@ -69,6 +69,6 @@ function Pagination({ pageNumber, setPageNumber, totalSize, dogsPerPage }) {
       </div>
     </div>
   )
-}
+};
 
 export default Pagination;
