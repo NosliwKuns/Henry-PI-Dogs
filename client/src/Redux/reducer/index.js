@@ -8,7 +8,8 @@ import {
   COMES_FROM,
   ORDER_BY_WEIGHT,
   ORDER_BY_HEIGHT,
-  CLEAN_DETAIL
+  CLEAN_DETAIL,
+  CLEAN_HOME
 } from '../actions';
 
 
@@ -111,6 +112,11 @@ const rootReducer =  (state = initialState, action) => {
       return {
         ...state,
         detail: action.payload
+      }
+    case CLEAN_HOME:
+      return {
+        ...state,
+        allDogs: action.payload
       }
 
 

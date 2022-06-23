@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getAllDogs, getTemperament } from '../../Redux/actions';
+import { getAllDogs, getTemperament, cleanHome } from '../../Redux/actions';
 import Cards from '../Cards';
 import SearchBar from '../SearchBar';
 import Loading from '../Loading';
@@ -11,7 +11,6 @@ import Pagination from './Pagination';
 const Home = () => {
 
   const dispatch = useDispatch();
-  /* const [transition, setTransition] = useState(false); */
   const allDogs = useSelector(state => state.allDogs);
   const [pageNumber, setPageNumber] = useState(1);
   const [dogsPerPage] = useState(8);
@@ -20,26 +19,21 @@ const Home = () => {
   const indexOfFirstDog = indexOfLastDog - dogsPerPage;
   const currentDogs = allDogs.slice(indexOfFirstDog, indexOfLastDog);
 
-  console.log('asa',allDogs);
-
   console.log(currentDogs)
   
   useEffect(() => {
-    /* setTimeout(() => { */
-    dispatch(getAllDogs())
-    dispatch(getTemperament())  
-   /*  }, 1500); */
+
+    setTimeout(() => {
+      dispatch(getAllDogs());
+      dispatch(getTemperament());
+
+    }, 500)
+
+    return dispatch(cleanHome());
+
   }, [dispatch]);
   
 
-
-  
-  // useEffect(() => {
-  //   /* setTransition(transition.split(' ').slice(0, 2).join(' ')) */
-  //   setTimeout(() => {
-  //     setTransition(!transition)
-  //   }, 1900);
-  // }, [])
   let display;
 
   if(allDogs.length) {

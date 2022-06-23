@@ -1,6 +1,6 @@
 const { getAllDogs } = require('./reqController');
 const { addNewDog, getAllTemps } = require('./dbController');
-const { Temperament } = require('../db');
+const { Temperament, Dog } = require('../db');
 
 
 const getDogs = async (req, res) => {
@@ -32,7 +32,7 @@ const getDetailById = async (req, res) => {
   try {
     const { idBreed } = req.params;
     const allDogs = await getAllDogs();
-    if(idBreed === null) {
+    if(!idBreed) {
       res.status(404).json('Dog not found in database')
     } else {
       let dog = allDogs.find(dog => dog.id == idBreed);
@@ -90,7 +90,56 @@ const comesFrom = async (req, res) => {
   } catch (error) {
     res.json(error);
   }
-}
+};
+
+const deleteBreed = async (req, res) => {
+  const { idBreed } = req.params;
+  try {
+    Dog.destroy( { where: { id: idBreed} })
+    .then( e => {
+      if (e === 1) {
+        return res.status(200).json('Dog Breed deleted successfully')
+      }
+    })
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const updateInfo = async (req, res) => {
+  const { idBreed } = req.params;
+  const { name, min_weight, temperament, Newtemperament } = req.body;
+  try {
+    const nose = await Dog.update({
+      name: name,
+      min_weight: min_weight,
+    }, {
+      where: {
+        id: idBreed
+      }
+    });
+    const uua = await Dog.findOne({
+      where: { id: idBreed }
+    })
+    for (const e of temperament) {
+      const are = await Temperament.findOne({
+        where: { name: e }
+      })
+      uua.removeTemperament(are)
+    }
+
+    for (const i of Newtemperament) {
+      const were = await Temperament.findOne({
+        where: { name: i }
+      })
+      uua.addTemperament(were)
+    }
+    
+    return res.json(nose)
+  } catch (error) {
+    // "Newtemperament" : ["Playful", "Fun-loving"]
+  }
+};
 
 
 module.exports = {
@@ -101,4 +150,6 @@ module.exports = {
   Temperaments,
   getAllTemps,
   comesFrom,
+  deleteBreed,
+  updateInfo
 }

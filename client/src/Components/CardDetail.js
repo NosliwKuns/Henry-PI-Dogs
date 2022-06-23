@@ -1,22 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { getDetail, cleanDetail } from './../Redux/actions/index';
+import { useParams, useHistory } from 'react-router-dom';
+import { getDetail, cleanDetail, deleteBreed } from './../Redux/actions/index';
 import Loading from './Loading';
 import '../scss/Details.scss';
 
 const CardDetail = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const { id } = useParams();
   const [transition, setTransition] = useState('transition transition-1 is-active');
 
   useEffect(() => {
     setTransition(transition.split(' ').slice(0, 2).join(' '))
   }, [transition])
+
+  console.log(id)
   
   useEffect(() => {
-    dispatch(cleanDetail());
+    
     dispatch(getDetail(id));
+
+    return dispatch(cleanDetail());
 
   },[dispatch, id] )
   let { name, 
@@ -26,8 +31,17 @@ const CardDetail = () => {
         min_weight, 
         max_weight, 
         temperaments,
-        life_span 
+        life_span,
+        from
   } = useSelector(state => state.detail);
+
+  const handleClick = (e) => {
+    alert('Dog Breed deleted successfully')
+    dispatch(deleteBreed(id));
+    history.push('/home')
+    console.log(id)
+  };
+
   let temps;
   if(temperaments && typeof temperaments[0] === 'object') {
   temps = temperaments.map(e => e.name).join(', ');
@@ -45,6 +59,7 @@ const CardDetail = () => {
       <div className={transition}></div>
       <section>
         <div className='left'>
+          {from === 'dataBase' ? <button onClick={handleClick}>Delete</button> : ''}
           <div className='left-content'>
             <h1>
               {name}

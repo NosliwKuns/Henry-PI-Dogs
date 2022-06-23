@@ -9,6 +9,7 @@ export const COMES_FROM = 'COMES_FROM';
 export const ORDER_BY_WEIGHT = 'ORDER_BY_WEIGHT';
 export const ORDER_BY_HEIGHT = 'ORDER_BY_HEIGHT';
 export const CLEAN_DETAIL = 'CLEAN_DETAIL';
+export const CLEAN_HOME = 'CLEAN_HOME';
 
 const objectToArray = (array) =>{
   const dogSearch = array.map( e => e);
@@ -76,4 +77,12 @@ export const orderByHeight = (value) => {
 
 export const cleanDetail = () => {
   return { type: CLEAN_DETAIL, payload: [] }
+};
+
+export const cleanHome = () => {
+  return { type: CLEAN_HOME, payload: [] }
+};
+
+export const deleteBreed = (idBreed) => async () => {
+  await axios.delete(`http://localhost:3001/delete/${idBreed}`);
 };
