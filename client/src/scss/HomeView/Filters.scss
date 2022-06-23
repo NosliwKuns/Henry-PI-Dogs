@@ -61,6 +61,14 @@
 
 .sec {
   border-radius: 0 0 1.5em  1.5em;
+
+  .accordion-content {
+    border-radius: 0 0 1.5em  1.5em;
+  }
+
+  p {
+    color: #92a1c6
+  }
 }
 
 .accordion-content{
@@ -133,9 +141,6 @@
 	clip-path: polygon(0 0, calc(var(--maskX) * 1%) 0, calc(var(--maskY) * 1%) 100%, 0 100%);
 }
 
-/* .melt-enter-active { 
-	position: absolute;
-} */
 .wer { 
 	position: absolute;
 	height: 300px;
@@ -146,14 +151,6 @@
 
 }
 
-/* @keyframes melt-enter {
-  0% {
-    clip-path: polygon(0% 100%, 100% 100%, 99.9% 100%, 100% 100%, 0% 100%, 0% 0%);
-  }
-  100% {
-    clip-path: polygon(0% 100%, 100% 100%, 99.9% 100%, 100% 100%, 100% 0%, 0% 0%);
-	}
-} */
 
 @keyframes melt-leave {
   0% {
