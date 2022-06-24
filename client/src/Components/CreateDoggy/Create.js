@@ -85,7 +85,7 @@ const Create = () => {
     </div>
     <form onSubmit={handleSubmit}
           className='form-content'>
-    <h3>Create you own Doggy</h3>
+    <h3>Create your own Doggy</h3>
     <div className='form-container'>
       <div className='form-group'>
         <input

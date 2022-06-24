@@ -9,10 +9,10 @@
 }
 
 :root {
-    --color-fur: #ffb141;
-    --color-fur-dark: #F5832C;
-    --color-spot: #F9584C;
-    --color-snout: #544258;
+    --color-fur: #a1b8c8;
+    --color-fur-dark: #738693;
+    --color-spot: #4e5e68;
+    --color-snout: var(--darkest);
     --color-collar: #0f9999;
     --duration: .7s;
     --semi-duration: calc(var(--duration) / 2);

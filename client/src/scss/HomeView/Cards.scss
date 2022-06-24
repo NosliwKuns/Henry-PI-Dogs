@@ -27,6 +27,9 @@
       
     }
   }
+  a {
+    animation: card-up 2.5s ease-in-out;
+  }
 
   .huesito {
     position: absolute;
@@ -34,7 +37,8 @@
     width: 40%;
     left: -12px;
     top: 4%;
-    transform: rotate(-45deg) ;
+    /* transform: rotate(-45deg); */
+    animation: hue 4s ease-in-out forwards;
 
     .cls-1{
       height: 100px;
@@ -108,6 +112,7 @@
       font-family: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
       font-weight: 500;
       font-size: 1.1rem;
+      color: #a1b8c8;
 
       h1 {
         font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
@@ -236,33 +241,6 @@
         width: 3em;
       }
     }
-
-  // .text {
-  //   /* position: absolute;
-  //   left: 13em;
-  //   top: 2em;
-  //   z-index: 2;
-  //   max-width: 20em; */
-  //   text-align: center;
-
-  //   h1 {
-  //     font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
-  //     font-size: 25px;
-  //     text-transform: uppercase;
-  //     text-rendering: optimizeLegibility;
-  //     margin-bottom: 1.5em;
-      
-  //     &.elegantshadow {
-  //       color: #131313;
-  //       letter-spacing: .15em;
-  //       text-shadow: 
-  //         1px -1px 0 #686c87, 
-  //         -1px 2px 1px #7b82a9, 
-  //         -2px 4px 1px #7f85a5, 
-  //         -3px 6px 1px #a8b5f6, 
-  //     }
-  //   }
-  // }
 }
 
 @keyframes zoom-in {
@@ -293,3 +271,29 @@
   }
 }
 
+@keyframes card-up {
+  0% {
+    transform: translateY(120px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes hue {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+    transform: rotate(45deg);
+  }
+  80% {
+    transform: rotate(360deg);
+  }
+  100% {
+    opacity:1;
+    transform: rotate(-45deg);
+  }
+}

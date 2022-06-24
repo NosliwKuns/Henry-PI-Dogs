@@ -6,7 +6,7 @@
   width: 100vw;
   margin: auto;
   justify-self: center;
-  color: aliceblue;
+  color: #a1b8c8;
 
   .center-container {
     display: grid;
@@ -167,14 +167,14 @@
     background-color: var(--darkest);
     display: grid;
     grid-template-columns: 4fr 1fr;
-    border: 1px solid rgb(75, 75, 75);
+    border: 1px solid #a1b8c84d;
     cursor: pointer;
     padding: 0.5rem;
     width: 100%;
   }
 
   span,img {
-    border: solid 1px #fff;
+    border: solid 1px #a1b8c8;
     animation: rotacion 1.5s ease;
     height: 30px;
     width: 30px;

@@ -34,7 +34,7 @@ const NavBar = () => {
           <Link to='/about'
             className={active === 'about' ? 'is-active' : ''} 
             onClick={() =>  setActive('about')}
-            >Contact</Link>
+            >About</Link>
         </div>
         <button 
           className={ham ? `hamburger` : 'hamburger is-active'}

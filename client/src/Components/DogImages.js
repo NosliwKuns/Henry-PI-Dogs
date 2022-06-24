@@ -1,6 +1,6 @@
 import React, {useState } from "react";
 import Dog from '../Images/corgi.jpg';
-import DogOne from '../Images/saint.jpg';
+import DogOne from '../Images/dog-car.jpg';
 import DogTwo from '../Images/dog_2.jpg';
 
 const DogImages = () => {

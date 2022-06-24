@@ -23,15 +23,13 @@ const Home = () => {
   
   useEffect(() => {
 
-    setTimeout(() => {
-      dispatch(getAllDogs());
-      dispatch(getTemperament());
-
-    }, 500)
+    dispatch(getAllDogs());
+    dispatch(getTemperament());   
+    setPageNumber(1);
 
     return dispatch(cleanHome());
 
-  }, [dispatch]);
+  }, [dispatch, setPageNumber]);
   
 
   let display;
@@ -40,7 +38,9 @@ const Home = () => {
     display = 
       (
         <> 
-        <SearchBar />
+        <SearchBar
+          setPageNumber={setPageNumber}
+        />
         <div className='b main-content'>
           <Cards 
             currentDogs={currentDogs}

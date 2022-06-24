@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../scss/HomeView/Filters.scss';
 import '../../scss/HomeView/DogHome.scss';
-import { filterByTemp } from '../../Redux/actions';
+import { filterByTemp, cleanHome } from '../../Redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { alphabeticalOrder, comesFrom, orderByWeight, orderByHeight } from '../../Redux/actions/index';
 
@@ -61,6 +61,7 @@ const Filters = ({ setPageNumber }) => {
   }
 
   const handleClick = (e) => {
+    dispatch(cleanHome());
     dispatch(filterByTemp(e.target.value));
     setPageNumber(1);
   };
@@ -128,7 +129,7 @@ const Filters = ({ setPageNumber }) => {
             <p>Dogs are the most variable mammal on earth, with artificial selection producing around 450 globally recognized breeds.</p> 
             <p>These breeds possess distinct traits related to morphology, which include body size, skull shape, tail phenotype, fur type, body shape, and coat colour.</p>
             <p>Their behavioural traits include guarding, herding, and hunting, and personality traits such as hypersocial behavior, boldness, and aggression.</p>
-            <p>Most breeds were derived from small numbers of founders within the last 200 years. As a result, today dogs are the most abundant carnivore species and are dispersed around the world</p>
+            <p>Most breeds were derived from small numbers of founders within the last 200 years. As a result, today dogs are the most abundant carnivore species and are dispersed around the world.</p>
           </div>
         </div>
       </div>

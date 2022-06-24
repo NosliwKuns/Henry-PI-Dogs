@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import '../../scss/HomeView/Pagination.scss';
 
 function Pagination({ pageNumber, setPageNumber, totalSize, dogsPerPage }) {
+  console.log(pageNumber);
   const pages = Math.ceil(totalSize / dogsPerPage)
   const numberOfPages = [];
   for (let i = 1; i <= pages; i++) {
@@ -17,16 +18,22 @@ function Pagination({ pageNumber, setPageNumber, totalSize, dogsPerPage }) {
     const dotsLeft = '<<';
     let dotsRight = '>>';
 
-    if (pages <= 2) {
+    /* if (pages <= 2) {
+      tempNumberOfPages = [...numberOfPages];
+    } */
+    if (pages <= 4) {
       tempNumberOfPages = [...numberOfPages];
     }
-    else if(pageNumber >= 1 && pageNumber <= 3) {
+    else if(pageNumber >= 1 && pageNumber <= 4) {
       tempNumberOfPages = [1, 2, 3, 4, 5, dotsInicial, pages]
     } 
-    else if (pageNumber === 4) {
+   /*  else if (pageNumber === 4) {
+      const sliced = 
+    } */
+    /* else if (pageNumber === 4) {
       const sliced = numberOfPages.slice(0, 5);
       tempNumberOfPages = [...sliced, dotsInicial, pages]
-    } 
+    } */ 
     else if (pageNumber > 4 && pageNumber < pages - 2) {
       const  sliced1 = numberOfPages.slice(pageNumber - 2, pageNumber);
       const sliced2 = numberOfPages.slice(pageNumber, pageNumber + 1);

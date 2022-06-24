@@ -7,7 +7,7 @@ const About = () => {
   return (
     <div className='contact'>
       <section>
-      <h3>Hi, I'm Antoni, a Full Stack Web Developer </h3>
+      <h3>Hi, I'm Antoni, a Full Stack Web Developer.</h3>
       <h3>I made this SPA as an individual project from Henry Bootcamp.</h3>
       <div>
         <a href='https://github.com/NosliwKuns'

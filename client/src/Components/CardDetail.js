@@ -69,7 +69,7 @@ const CardDetail = () => {
           </div>
         </div>
         <div className='center '>
-          <h1>Friends</h1>
+          <h1 className='text-left'>Friends</h1>
           <span className='square-up'></span>
           <span className='square-down'></span>
           <div className='img-center'>

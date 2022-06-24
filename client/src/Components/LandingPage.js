@@ -9,8 +9,6 @@ const LandingPage = () => {
   return (
 
 <div className='landing-page'>
-	{/* <div className='grid'> */}
-	
 		<div className='text-landing'>
 			<h3>Welcome to</h3>
 			<h1 className='elegantshadow'>Doggy</h1>
@@ -20,9 +18,10 @@ const LandingPage = () => {
 			<button class="custom-btn btn-6"><span>Get started</span></button>
 			</Link>
 		</div>
-		<DogImages />
+		<section>
+			<DogImages />
+		</section>
 	
-	{/* </div> */}
 </div>
 
   )
